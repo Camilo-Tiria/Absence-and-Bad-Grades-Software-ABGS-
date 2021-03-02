@@ -1,0 +1,164 @@
+body {
+  font: 13px/1.6 Tahoma, sans-serif;
+  background: #353535;
+}
+
+.izquierda {
+  float: left;
+  clear: left;
+}
+
+.derecha {
+  float: right;
+  clear: right;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+#contenedor {
+  background: #F3F0F0;
+  border: 1px solid silver;
+  margin: 13em auto;
+  padding: 1em;
+  width: 768px;
+}
+
+span.requerido {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #F71616;
+}
+
+h2 {
+  font: normal 2em arial, sans-serif;
+  margin: 0;
+}
+
+ul li.botones {
+  border-top: 2px solid purple;
+  clear: both;
+  float: none;
+  padding: 1em 0;
+  margin-top: 1em;
+  text-align: right;
+  width: 100%;
+}
+
+ul li.botones input {
+  font-size: 1.3em;
+}
+
+ul li {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  width: 46%;
+}
+
+ul li label.titulo {
+  font-weight: bold;
+}
+
+ul li div span {
+  float: left;
+  padding: 0.3em 0;
+}
+
+ul li div span.completo {
+  width: 100%;
+}
+
+ul li div span.mitad {
+  width: 50%;
+}
+ul li div span label {
+  display: block;
+  font: normal 1.1em arial, sans-serif;
+  color: #333;
+}
+
+ul li p.ayuda {
+  display: none;
+}
+
+ul li input {
+  padding: 0.3em;
+}
+ input#email {
+  width: 260px;
+}
+input#telefonofijo, input#telefonomovil {
+  width: 135px;
+}
+
+ul li:hover {
+  background-color: white;
+}
+
+ul li.botones:hover {
+  background-color: transparent;
+}
+
+
+
+
+
+ul li.izquierda, ul li.derecha {
+  float: none;
+  width: auto;
+}
+
+ul li {
+  overflow: hidden;
+}
+
+ul li label.titulo {
+  float: left;
+  width: 150px;
+}
+
+ul li div {
+  margin-left: 160px;
+}
+
+h2 {
+  margin-bottom: 0.3em;
+}
+
+ul li {
+  border-top: 1px solid black;
+  margin: 0;
+  padding: 1em;
+}
+
+ul li.botones {
+  margin: 0;
+}
+
+ul li label.titulo {
+  text-align: right;
+  width: 100px;
+}
+
+ul li div {
+  margin-left: 110px;
+  overflow: hidden;
+}
+
+ul li {
+  position: relative;
+}
+
+ul li:hover p.ayuda {
+  display: block;
+  margin: 0.3em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  font-weight: bold;
+}
