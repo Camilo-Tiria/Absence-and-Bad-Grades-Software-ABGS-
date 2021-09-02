@@ -1,0 +1,67 @@
+#divContenedor {
+  width:15%;
+  z-index:1;
+  margin:0 auto;
+  font-family: Time-new-Roman;
+}
+#divMenu a{
+  color:#E9ECEC;
+  text-decoration: none;
+  font-family: Time-new-Roman;
+}
+#divMenu a:hover{
+  color:#C82D2D;
+}
+#divMenu {
+  position:absolute;
+font-family: Time-new-Roman;
+  left:-.1%;
+  top:19.3%;
+  width:13%;
+  height:75%;
+  z-index:0;
+  background-image: url(https://media.giphy.com/media/8mz9YJidZMGXndg6eH/giphy.gif);
+
+}
+  #divContenido2 {
+    position:absolute;
+    left:120% ;
+    top:10px;
+    width:625%;
+    height:105%;
+    z-index:0;
+    overflow:auto;
+     font-family: Time-new-Roman;
+    }
+
+  #divContenido {
+    position:absolute;
+    left:120% ;
+    top:10px;
+    width:625%;
+    height:105%;
+    z-index:0;
+    overflow:auto;
+     font-family: Time-new-Roman;
+    }
+    #divContenido3 {
+    position:absolute;
+    left:122%;
+    top:5%;
+    width:630%;
+    height:100%;
+    z-index:0;
+    overflow:all;
+         font-family: Time-new-Roman;
+    }
+#divPiePagina {
+  position:absolute;
+  left:0px;
+  top:89.8%;
+  height:10.2%;
+  width: 100%;
+  z-index:1;
+background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
+     font-family: Time-new-Roman;
+
+  }
