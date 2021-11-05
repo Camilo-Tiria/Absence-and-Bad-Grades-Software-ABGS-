@@ -15,7 +15,7 @@
 }
 
 h1 {
-	background-image: url(https://media.giphy.com/media/xTiTniuHdUjpOlNo1q/giphy.gif);
+	background-image: url(https://media1.giphy.com/media/FupCCQnyHOCSUEueed/giphy.gif?cid=ecf05e4753nvw9urfixeagno369htyddrs8g50b41fj1lag9&rid=giphy.gif&ct=g);
 	background-size:50px;
 	color: transparent;
 	-moz-background-clip: text;
@@ -25,7 +25,7 @@ h1 {
 	line-height: .90;
 }
 h1 a{
-	background-image: url(https://media.giphy.com/media/xTiTniuHdUjpOlNo1q/giphy.gif);
+	background-image: url(https://media1.giphy.com/media/FupCCQnyHOCSUEueed/giphy.gif?cid=ecf05e4753nvw9urfixeagno369htyddrs8g50b41fj1lag9&rid=giphy.gif&ct=g);
 	background-size: 82px;
 	color: transparent;
 	-moz-background-clip: text;

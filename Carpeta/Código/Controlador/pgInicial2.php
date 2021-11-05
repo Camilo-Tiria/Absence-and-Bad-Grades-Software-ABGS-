@@ -41,7 +41,6 @@ opacity: .8;
 transition: all .3s;
 
 	</style>
-<figure class="image"><a href="#"><img src="../Imagenes/gif.gif"/></a></figure>
 
 </center>
 </body>

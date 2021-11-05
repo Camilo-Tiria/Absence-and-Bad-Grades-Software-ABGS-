@@ -1,13 +1,15 @@
 <?php
 require "../Modelo/conexionBasesDatos.php";
-if (!isset($_SESSION['user']))
+session_start();
 extract ($_REQUEST);
-if (!isset($_REQUEST['x']))
-  $_REQUEST['x']=0;
+if (!isset($_SESSION['user']))
+  header("location:/Proyecto_SENA/ABGS/?x=2");
+if (!isset($_REQUEST['pg']))
+  $pg="pgInicial";
 
-
+$user=$_SESSION['user'];
 $objConexion=Conectarse();
-$instructor = "SELECT  u.Correo_SENA, u.ROL_id_rol, i.Num_doc,  i.EstadoInstructor_idEstadoInstructor, i.Tip_doc, i.NombresI, i.ApellidosI, i.Telefono, i.Direccion, i.Correo_corp, i.Correo_Pl, i.Area,e.idEstadoInstructor , e.EstadoInstruc from instructor as i INNER JOIN estadoinstructor as e on i.EstadoInstructor_idEstadoInstructor=e.idEstadoInstructor INNER JOIN usuario as u on  i.Correo_corp=u.Correo_SENA where i.Correo_corp = Correo_SENA ";
+$instructor = "SELECT  u.Correo_SENA, u.ROL_id_rol, i.Num_doc,  i.EstadoInstructor_idEstadoInstructor, i.Tip_doc, i.NombresI, i.ApellidosI, i.Telefono, i.Direccion, i.Correo_corp, i.Correo_Pl, i.Area,e.idEstadoInstructor , e.EstadoInstruc from instructor as i INNER JOIN estadoinstructor as e on i.EstadoInstructor_idEstadoInstructor=e.idEstadoInstructor INNER JOIN usuario as u on  i.Correo_corp=u.Correo_SENA where i.Correo_corp = '$user' ";
 
 $resultado = $objConexion->query($instructor);
 
@@ -19,6 +21,8 @@ $resultado = $objConexion->query($instructor);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PERFIL</title>
 <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
+<script src="https://kit.fontawesome.com/b78262bdfc.js" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="
 sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -61,7 +65,13 @@ sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossor
   <div style="position: absolute; color:<?php echo $color;?>">► Area de Trabajo:</div>
          <div style="margin-left: 19%;"><td><?php  echo $instructor->Area ?></td><br></div>
 
-        <div id="bot"> <td  align="center"><a href="EditarInstructor.php?Num_doc=<?php echo $instructor->Num_doc?>"><i  class="fas fa-color fa-user-cog fa-4x"></i></a></td></div>
+        <div id="bot"> <td  align="center"><a href="EditarInstructor2.php?Num_doc=<?php echo $instructor->Num_doc?>"><i  class="fas fa-color fa-user-cog fa-3x"></i></a></td></div>
+
+        <div id="bot2"> <td  align="center"><a href="CambioContra.php"><i class="fas fa-color2 fa-lock fa-3x"></i></a></td></div>
+
+          
+
+      
   
 </td>
     
@@ -109,12 +119,22 @@ color: white;
 }
 #bot{
   margin-left:65%;
-  margin-top: -25%; 
+  margin-top: -20%; 
 }
 .fa-color{
 color: white;
 }
 .fa-color:hover{
+  color: #CC2D05;
+  }
+#bot2{
+  margin-left:80%;
+  margin-top: -6%; 
+}
+.fa-color2{
+color: white;
+}
+.fa-color2:hover{
   color: #CC2D05;
 }
 .bto {

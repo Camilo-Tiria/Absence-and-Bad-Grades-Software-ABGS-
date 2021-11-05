@@ -37,8 +37,6 @@ box-shadow: 0px 0px 15px 5px royalblue;
 .image {overflow:hidden;}
 
 	</style>
-<figure class="image"><a href="#"><img src="../Imagenes/gif2.gif"/></a></figure>
-
 </center>
 </body>
 </html>
