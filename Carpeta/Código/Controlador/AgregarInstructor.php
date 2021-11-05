@@ -1,3 +1,4 @@
+
 <?php
 include "../Modelo/conexionBasesDatos.php";
 
@@ -11,26 +12,27 @@ $Telefono= $_POST ["Telefono"];
 $Direccion= $_POST ["Direccion"];
 $Correo_corp= $_POST ["Correo_corp"];
 $Correo_Pl= $_POST ["Correo_Pl"];
+$Area= $_POST ["Area"];
 
 $objConexion=Conectarse();
 
-$sql = "insert into instructor (Num_doc,TipoInstructor_idTipoInstructor,EstadoInstructor_idEstadoInstructor,Tip_doc,NombresI,ApellidosI,Telefono, Direccion, Correo_corp, Correo_Pl)  
+$sql = "insert into instructor (Num_doc,TipoInstructor_idTipoInstructor,EstadoInstructor_idEstadoInstructor,Tip_doc,NombresI,ApellidosI,Telefono, Direccion, Correo_corp, Correo_Pl,Area)  
 values ('$_REQUEST[Num_doc]' ,'$_REQUEST[TipoInstructor_idTipoInstructor]','$_REQUEST[EstadoInstructor_idEstadoInstructor]','$_REQUEST[Tip_doc]', '$_REQUEST[NombresI]', '$_REQUEST[ApellidosI]'
-,'$_REQUEST[Telefono]','$_REQUEST[Direccion]','$_REQUEST[Correo_corp]','$_REQUEST[Correo_Pl]')";
+,'$_REQUEST[Telefono]','$_REQUEST[Direccion]','$_REQUEST[Correo_corp]','$_REQUEST[Correo_Pl]','$_REQUEST[Area]')";
 
 $resultado = $objConexion->query($sql);
 
 if ($resultado){
 	echo "<script>
                 alert('AGREGADO CORRECTAMENTE');
-                
-                window.location= 'vistaPrincipalInstructor.php?pg3=listarInstructores'
+                 window.location= '/Proyecto_SENA/ABGS'
+               
     </script>";}
  else{
  	echo "<script>
                 alert('INSERCION INCORRECTA, VERIFIQUE SUS DATOS');
                 
-                window.location= 'vistaPrincipalInstructor.php'
+                window.location= 'javascript:history.back()'
     </script>";
 
 }

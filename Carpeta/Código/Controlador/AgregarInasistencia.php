@@ -1,25 +1,33 @@
 <?php
 include "../Modelo/conexionBasesDatos.php";
-$APRENDIZ = $_POST ["APRENDIZ"];
-$R_APRENDIZAJE_Code_Res = $_POST ["R_APRENDIZAJE_Code_Res"];
+
+$N_doc = $_POST ["N_doc"];
 $Fecha_Inas = $_POST ["Fecha_Inas"];
-$Periodo_Inas= $_POST ["Periodo_Inas"];
 $Observaciones= $_POST ["Observaciones"];
-$Cantidad_Horas= $_POST ["Cantidad_Horas"];
+$Trimestre= $_POST ["Trimestre"];
+$Area= $_POST ["Area"];
+$Instruc_Tecnico= $_POST ["Instruc_Tecnico"];
 
 $objConexion=Conectarse();
 
-$sql = "insert into inasistencia (APRENDIZ,R_APRENDIZAJE_Code_Res,Fecha_Inas,Periodo_Inas,Observaciones,Cantidad_Horas)  
-values ('$_REQUEST[APRENDIZ]' ,'$_REQUEST[R_APRENDIZAJE_Code_Res]','$_REQUEST[Fecha_Inas]','$_REQUEST[Periodo_Inas]','$_REQUEST[Observaciones]'
-,'$_REQUEST[Cantidad_Horas]')";
+$sql = "insert into inasistencia (N_doc,Fecha_Inas,Observaciones,Trimestre,Area,Instruc_Tecnico)  
+values ('$_REQUEST[N_doc]' ,'$_REQUEST[Fecha_Inas]','$_REQUEST[Observaciones]','$_REQUEST[Trimestre]','$_REQUEST[Area]'
+,'$_REQUEST[Instruc_Tecnico]')";
 
 $resultado = $objConexion->query($sql);
 
-if ($resultado)
-	echo "La inasistencia se ha agregado correctamente";
-else
-	echo "Problemas al Agregar inasistencia";
+if ($resultado){
+	echo "<script>
+            
+                
+                window.location= 'javascript:history.back()'
+    </script>";
+}
+else{
+ 	echo "<script>
+                alert('INSERCION INCORRECTA, VERIFIQUE SUS DATOS');
+                
+                window.location= 'javascript:history.back()'
+    </script>";
+}
 ?>
-
-	
-	

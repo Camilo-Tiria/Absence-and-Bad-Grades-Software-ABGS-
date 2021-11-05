@@ -14,7 +14,7 @@ $sql="Delete From instructor Where Num_doc='$Num_doc'";
 
 $resultado = $objConexion->query($sql);
 if ($resultado){
-	header('location:vistaPrincipalInstructor.php?pg3=listarInstructores');
+	header('location:listarInstructores1.php');
 }
 else 
    

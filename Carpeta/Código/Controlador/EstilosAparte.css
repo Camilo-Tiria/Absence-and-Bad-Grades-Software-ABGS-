@@ -1,0 +1,122 @@
+#divPiePagina {
+  position:absolute;
+  left:0px;
+  top:90%;
+  height:10%;
+  width: 100%;
+  z-index:1;
+background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
+  }
+.bto {
+  position:absolute;
+  left:6%;
+  top:21%;
+  width:3%;
+  height:6%;
+  box-shadow:  5px 5px 5px black; 
+  background-color:#E1E8EA;
+}
+.bto:hover{background-color: black;transition: 0.3s}
+
+.bto2 {
+  position:absolute;
+  left:1260px;
+  top:150px;
+  width:39px;
+  height:30px;
+  box-shadow:  5px 5px 5px black; 
+  background-color:#E1E8EA;
+}
+.bto2:hover{background-color: black;transition: 0.3s}
+
+.bto3 {
+  position:absolute;
+  left:1200px;
+  top:150px;
+  width:39px;
+  height:30px;
+  box-shadow:  5px 5px 5px black; 
+  background-color:#E1E8EA;
+}
+.bto3:hover{background-color: black;transition: 0.3s}
+
+.fa-color{color: black;}
+.fa-color:hover{color:#784EB7;}   
+.fa-color2{color:black;}
+.fa-color2:hover{color:royalblue;}
+.fa-color3{color:black;}
+.fa-color3:hover{color:#AF3C34;}
+.fa-color4{color:black;}
+.fa-color4:hover{color: green;}
+.fa-color5{color: black;}
+.fa-color5:hover{color:green;}
+.fa-arrow-left{color:black;}
+.fa-arrow-left:hover{color: white;transition: 0.3s}
+.fa-eraser{color: black}
+.fa-eraser:hover{color: red}
+
+#divContenido {
+    position:absolute;
+    left:-0.1%;
+    top:30%;
+    width:100%;
+    height:400px;
+    z-index:0;
+    overflow:auto;
+    font-family: Time-new-Roman;
+    }
+    #divContenido2 {
+    position: absolute;
+    left: 6%;
+    top: 28%;
+    width: 88%;
+    height: 400px;
+    z-index: 0;
+    overflow: auto;
+    font-family: Time-new-Roman;
+    }
+#divbutton2 {
+  position:absolute;
+  left:1160px;
+  top:170px;
+  width:90px;
+  height:20px;
+  box-shadow:  5px 5px 5px black; 
+}
+
+#divbutton3 {
+  position:absolute;
+  left:90%;
+  top:1%;
+  width:8.5%;
+  height:4%;
+  box-shadow:  5px 5px 5px black; 
+}
+#divbutton4 {
+  position:absolute;
+  left:1150px;
+  top:175px;
+  width:80px;
+  height:20px;
+  box-shadow:  5px 5px 5px black; 
+}
+#divbutton5 {
+  position:absolute;
+  left:1100px;
+  top:175px;
+  width:80px;
+  height:20px;
+  box-shadow:  5px 5px 5px black; 
+}
+.boton_personalizado{
+    text-decoration: none;
+    padding: 35px;
+    font-weight: 600;
+    font-size: 40px;
+    color: #ffffff;
+    background-color: gray;
+    border-radius: 6px;
+    left: -123px;
+
+  }
+  .boton_personalizado:hover{background-color: #101E2B ;transition: 0.3s}

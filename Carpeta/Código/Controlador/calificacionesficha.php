@@ -22,88 +22,38 @@ $resultado = $objConexion->query($sql);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Listar Programas</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="paginacion.css?v=<?php echo(rand()); ?>" />
 </head>
-<script language="javascript">
-        function doSearch()
-        {
-            const tableReg = document.getElementById('datos');
-            const searchText = document.getElementById('searchTerm').value.toLowerCase();
-            let total = 0;
- 
-            for (let i = 1; i < tableReg.rows.length; i++) {
-                if (tableReg.rows[i].classList.contains("noSearch")) {
-                    continue;
-                }
- 
-                let found = false;
-                const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-                for (let j = 0; j < cellsOfRow.length && !found; j++) {
-                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
-                        found = true;
-                        total++;
-                    }
-                }
-                if (found) {
-                    tableReg.rows[i].style.display = '';
-                } else {
-                    
-                    tableReg.rows[i].style.display = 'none';
-                }
-            }
-            const lastTR=tableReg.rows[tableReg.rows.length-1];
-            const td=lastTR.querySelector("td");
-            lastTR.classList.remove("hide", "red");
-            if (searchText == "") {
-                lastTR.classList.add("hide");
-            } else if (total) {
-                td.innerHTML="Se ha encontrado "+total+" coincidencia"+((total>1)?"s":"");
-            } else {
-                lastTR.classList.add("red");
-                td.innerHTML="No se han encontrado coincidencias";
-            }
-        }
-    </script>
-    <style>
-        #datos {border:1px solid black;padding:10px;font-size:1em;}
-        #datos tr:nth-child(even) {background:gray;}
-        #datos td {padding:5px;}
-        #datos tr.noSearch {background:White;font-size:0.8em;}
-        #datos tr.noSearch td {padding-top:10px;text-align:right;}
-        .hide {display:none; }
-        .red {color:Red;}
-    </style>
-</head>
+<head>
+<meta charset="utf-8">
+   
 <body>
-<h1 align="center">SELECCIONA LA FICHA</h1>
-<form style="margin-left: 65px;">
-        Busque una Ficha <input style="margin-bottom: 10px;" id="searchTerm" placeholder="Ficha, Nom_Programa..." type="text" onkeyup="doSearch()" />
-    </form>
-    <p>
-        <table style="margin-left: 65px;" id="datos" width="89%" border="2" align="center">
- <tr align="center" bgcolor="GRAY" style="color:white" >
-   <th>Ficha</th><th>Nom_Programa</th><th>Areas</th><th>Registros-Notas</th>
-  </tr>
-    <tr align="center" bgcolor="GRAY"style="color:white" >
+<h1 style="margin-top:-7px;" align="center">CALIFICACIONES</h1>
+<table  id="tabla" class="table" width="89%" border="2" align="center">
+<thead style="color: white">
+   <th>Ficha</th><th>Nom_Programa</th><th>Jornada</th><th>N°Trimestres</th><th>Registrar</th><th>Reporte-general</th><th>Reporte-especifico</th>
+ </thead>
+ <tbody>
   <?php
   while ($programa= $resultado->fetch_object())
   {
   ?>
     </tr>
   <tr bgcolor="#CCCCCC">
-        <td><?php  echo $programa->Ficha_carac ?></td>
+         <td><?php  echo $programa->Ficha_carac ?></td>
         <td><?php  echo $programa->Nom_Program ?>     </td>
+        <td><?php  echo $programa->Jornada ?></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php  echo $programa->Trimestres ?></td>
         
          <td align="center"><a href="frmAgregarNotaArea.php?Ficha_carac=<?php echo $programa->Ficha_carac?>"><p class="fas fa-arrow fa-arrow-circle-right fa-1x"></p></a></td>
   
       <td align="center"><a href="registrosnotasArea.php?Ficha_carac=<?php echo $programa->Ficha_carac?>"><p class="fas fa-color fa-edit fa-1x"></p></a></td>
-
+      <td align="center"><a href="registrosespecificos.php?Ficha_carac=<?php echo $programa->Ficha_carac?>"><p class="fas fa-color fa-edit fa-1x"></p></a></td>
+       
   <?php
   }
   ?>
-   <tr class='noSearch hide'>
-  <td colspan="50"></td>
-  </tr>
+ </tbody>
 </table>
 <style type="text/css">
         .fa-arrow{color: black;}
@@ -115,5 +65,43 @@ $resultado = $objConexion->query($sql);
         .fa-color:hover{
     color:white ;
     </style> 
+<!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+    </script>
+    <script>
+    $(document).ready(function () {
+            $('#tabla').DataTable({
+                language: {
+                    processing: "Tratamiento en curso...",
+                    search: "Buscar Ficha&nbsp;:", 
+                    lengthMenu: "Agrupar por _MENU_ items",
+                    info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
+                    infoEmpty: "No existen datos.",
+                    infoFiltered: "(filtrado de _MAX_ elementos en total)",
+                    infoPostFix: "",
+                    loadingRecords: "Cargando...",
+                    zeroRecords: "No se han encontrado coincidencias",
+                    emptyTable: "No hay datos disponibles en la tabla.",
+                    paginate: {
+                        first: "Primero",
+                        previous: "Anterior",
+                        next: "Siguiente",
+                        last: "Ultimo"
+                    },
+                    aria: {
+                        sortAscending: ": active para ordenar la columna en orden ascendente",
+                        sortDescending: ": active para ordenar la columna en orden descendente"
+                    }
+                },
+                scrollY: 275,
+                lengthMenu: [ [10, 25, -1], [10, 25, "Todo"] ],
+            });
+        });
+    </script>
 </body>
 </html>
+

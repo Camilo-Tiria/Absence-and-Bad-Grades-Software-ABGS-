@@ -1,0 +1,45 @@
+
+
+    * {
+  box-sizing: border-box;
+}
+body {
+  background:  ;
+  color: white;
+  font-family: Time-new-Roman;
+}
+
+form {
+  width: 350px;
+  margin: auto;
+  padding: 15px;
+  margin-top: 10px;
+  color: black;
+  border: 1px solid black;
+    font-family: Time-new-Roman;
+
+}
+label, input,select {
+  width: 100%;
+  display: block;
+  font-size: 1.0em;
+ font-family: Time-new-Roman;
+}
+input, select {
+  padding: 1px;
+  margin-bottom:3px;
+   font-family: Time-new-Roman;
+}
+input[type="submit"] {
+  width: 4
+  0%;
+  margin: auto;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+   font-family: Time-new-Roman;
+}
+.error {
+  color: red;
+}

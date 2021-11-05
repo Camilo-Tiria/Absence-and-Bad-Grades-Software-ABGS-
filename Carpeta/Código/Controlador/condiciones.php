@@ -17,7 +17,9 @@ $resultado1 = $objConexion->query($sql1);
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<title>FORMULARIO</title>
+<title>TÉRMINOS Y CONDICIONES</title>
+<link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 	body {
@@ -48,6 +50,7 @@ ul {
   padding: 1em;
   width: 690px;
   text-align: justify;   
+}
 </style>
 
 
@@ -59,7 +62,7 @@ ul {
 <div id="contenedor">
 
 
-<font face="Times New Roman" size="6">Terminos y condiciones </font>
+<font face="Times New Roman" size="6">Términos y condiciones </font>
 </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img style="height: 60px;" src="../Imagenes/Logo2.png">
 <table width="690" cellspacing="1" cellpadding="3" border="0" bgcolor="#165">
@@ -102,11 +105,31 @@ function myFunction() {
 <form action="FormularioPrincipal.php">
  
   <input type="checkbox" id="myCheck" name="test" required>
-  He leido y acepto los terminos y condiciones 
+  He leído y acepto los términos y condiciones 
   <br><br>
 </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="submit">
-</form>
+  <input type="submit"></form>
+  
+  
+<style type="text/css">
+#divbutton3 {
+  position:absolute;
+  left:80px;
+  top:60px;
+  width:69px;
+  height:20px;
+}
+.fa-arrow-left{
+  color:black;
+
+}
+.fa-arrow-left:hover
+{
+  color: #0B1594;
+}
+
+</div>
+
 
  
 </body>

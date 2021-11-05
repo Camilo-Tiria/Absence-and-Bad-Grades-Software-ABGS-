@@ -32,18 +32,32 @@ Public function setNombre($value)
  $this->Nombre=$value;
 }
 	
-	public function Agregar() {
+	public function AgregarEstado() {
 	}
+	$this->Conexion=Conectarse();
+		$sql="insert into estado(idEstado,Nombre)
+values ('$this->idEstado','$this->Nombre')"
+
+$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;
+
+
+	public function ModificarEstado() {
+	}
+	$this->Conexion=Conectarse();
+		$sql="update from aprendiz where N_doc='$N_doc'";
+		$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;	
 
 	
-	public function Consultar() {
+	public function EliminarEstado() {
 	}
-
-	public function Modificar() {
-	}
-
-	
-	public function Eliminar() {
-	}
+	$this->Conexion=Conectarse();
+		$sql="Delete from aprendiz where N_doc='$N_doc'";
+		$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;	
 }
 ?>

@@ -1,6 +1,7 @@
 body {
-  font: 13px/1.6 Tahoma, sans-serif;
+font-family: Time-new-Roman;
   background: #353535;
+    
 }
 
 .izquierda {
@@ -23,9 +24,12 @@ ul {
 #contenedor {
   background: #F3F0F0;
   border: 1px solid silver;
-  margin: 13em auto;
+  margin: 7em auto;
   padding: 1em;
   width: 768px;
+  height: 350px;
+  font-family: Time-new-Roman;
+
 }
 
 span.requerido {
@@ -35,7 +39,7 @@ span.requerido {
 }
 
 h2 {
-  font: normal 2em arial, sans-serif;
+ font-family: Time-new-Roma;
   margin: 0;
 }
 
@@ -47,6 +51,7 @@ ul li.botones {
   margin-top: 1em;
   text-align: right;
   width: 100%;
+   font-family: Time-new-Roma;
 }
 
 ul li.botones input {
@@ -57,10 +62,12 @@ ul li {
   margin: 0.5em 0;
   padding: 0.5em;
   width: 46%;
+   font-family: Time-new-Roma;
 }
 
 ul li label.titulo {
   font-weight: bold;
+   font-family: Time-new-Roma;
 }
 
 ul li div span {
@@ -77,8 +84,8 @@ ul li div span.mitad {
 }
 ul li div span label {
   display: block;
-  font: normal 1.1em arial, sans-serif;
   color: #333;
+  font-family: Time-new-Roma;
 }
 
 ul li p.ayuda {
@@ -161,4 +168,5 @@ ul li:hover p.ayuda {
   right: 0;
   width: 150px;
   font-weight: bold;
+  font-family: Time-new-Roman;
 }

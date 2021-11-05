@@ -27,20 +27,34 @@ Public function setEstadoInstruc($value)
 {
  $this->EstadoInstruc=$value;
 }
-	
-	public function Agregar() {
+
+public function AgregarEstadoInstructor() {
 	}
 
-	
-	public function Consultar() {
+	$this->Conexion=Conectarse();
+		$sql="insert into estadoinstructor(idEstadoInstructor,EstadoInstruc)
+values ('$this->idEstadoInstructor','$this->EstadoInstruc')"
+
+$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;
+
+
+	public function ModificarEstadoInstructor() {
 	}
+	$this->Conexion=Conectarse();
+		$sql="update from estadoinstructor where idEstadoInstructor='$idEstadoInstructor'";
+		$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;	
 
 	
-	public function Modificar() {
+	public function EliminarEstadoInstructor() {
 	}
-
-	
-	public function Eliminar() {
-	}
+	$this->Conexion=Conectarse();
+		$sql="Delete from estadoinstructor where idEstadoInstructor='$idEstadoInstructor'";
+		$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;	
 }
 ?>

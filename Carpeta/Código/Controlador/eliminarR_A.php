@@ -14,17 +14,17 @@ $sql="Delete From r_aprendizaje Where Code_Res='$Code_Res'";
 
 $resultado = $objConexion->query($sql);
 if ($resultado){
-	header('location:vistaPrincipalAsistencia.php?pg2=listaR_Aprendizajes');
-}
-else 
-   
-     echo "<script>
-                alert('R_A NO SE PUEDE ELIMINAR PORQUE SE ENCUENTRA EN USO');
+	echo "<script>
+ window.location= 'javascript:history.back()'
+    </script>";}
+ else{
+ 	echo "<script>
+                alert(NO SE PUDO ELIMINAR EL R_Aprendizaje');
                 
-                window.location= 'vistaPrincipalAsistencia.php'
+                 window.location= 'javascript:history.back()'
     </script>";
 
-
+}
 ?>
 
 </BODY>
