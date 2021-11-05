@@ -6,23 +6,18 @@ use Programa;
 class Inasistencia {
 	
 	private $Cod_Inas;
-	private $APRENDIZ;
-	private $R_APRENDIZAJE_Code_Res;
+	private $N_doc;
 	private $Fecha_Inas;
-	private $Periodo_Inas;
 	private $Observaciones;
-	private $Cantidad_Horas;
 
 	public $unnamed_Programa_;
 	
 	public function Inasistencia($Cod_Inas,$APRENDIZ, $R_APRENDIZAJE_Code_Res, $Fecha_Inas, $Periodo_Inas, $Observaciones, $Cantidad_Horas) {
 		$this->Cod_Inas=$Cod_Inas;
-		$this->APRENDIZ=$APRENDIZ;
-		$this->R_APRENDIZAJE_Code_Res=$R_APRENDIZAJE_Code_Res;
+		$this->N_doc=$N_doc;
 		$this->Fecha_Inas=$Fecha_Inas;
-		$this->Periodo_Inas=$Periodo_Inas;
 		$this->Observaciones=$Observaciones;
-		$this->Cantidad_Horas=$Cantidad_Horas;
+
 	}
 
 Public function getCod_Inas()
@@ -33,21 +28,13 @@ Public function setCod_Inas($value)
 {
  $this->Cod_Inas=$value;
 }
-Public function getAPRENDIZ()
+Public function getN_doc()
 {
-return $this->APRENDIZ;
+return $this->N_doc;
 }
-Public function setAPRENDIZ($value)
+Public function setN_doc($value)
 {
- $this->APRENDIZ=$value;
-}
-Public function getR_APRENDIZAJE_Code_Res()
-{
-return $this->R_APRENDIZAJE_Code_Res;
-}
-Public function setR_APRENDIZAJE_Code_Res($value)
-{
- $this->R_APRENDIZAJE_Code_Res=$value;
+ $this->N_doc=$value;
 }
 Public function getFecha_Inas()
 {
@@ -57,14 +44,6 @@ Public function setFecha_Inas($value)
 {
  $this->Fecha_Inas=$value;
 }
-Public function getPeriodo_Inas()
-{
-return $this->Periodo_Inas;
-}
-Public function setPeriodo_Inas($value)
-{
- $this->Periodo_Inas=$value;
-}
 Public function getObservaciones()
 {
 return $this->Observaciones;
@@ -73,14 +52,7 @@ Public function setObservaciones($value)
 {
  $this->observaciones=$value;
 }
-Public function getCantidad_Horas)
-{
-return $this->Cantidad_Horas;
-}
-Public function setCantidad_Horas($value)
-{
- $this->Cantidad_Horas=$value;
-}
+
 
 	
 public function agregarInasistencia()

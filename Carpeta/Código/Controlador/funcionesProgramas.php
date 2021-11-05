@@ -20,26 +20,35 @@ $resultado = $objConexion->query($sql);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Editar Programas</title>
-
+<link rel="stylesheet" href="paginacion.css?v=<?php echo(rand()); ?>" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<meta charset="utf-8">
 </head>
 
 <body>
-<h1 align="center">EDITAR FICHAS</h1>
-<table width="89%" border="0" align="center">
-  <tr align="center" bgcolor="GRAY"style="color:white" >
-    <td width="11%">Ficha</td>
-    <td width="16%">Nom_Programa</td>
-    <td width="16%">Area</td>
-    <td width="16%">Fecha inicio</td>
-    <td width="19%">Tipo_formacion</td>
-    <td width="12%">Modalidad</td>
-     <td width="10%">Modificar</td>
-    <td width="10%">Eliminar</td>
- 
+      <style type="text/css">
+        .fa-color{color:black;}
+        .fa-color:hover{color:white;}  
+        .fa-color2{color:black;}
+        .fa-color2:hover{color:#A20C0C;} 
 
-  </tr>
-  
-  
+      * {
+  box-sizing: border-box;
+}
+body {
+  background:  ;
+
+  font-family: ;
+}
+    </style>  
+    <br>
+<h1 align="center"style="margin-top: -25px; ">EDITAR FICHAS</h1>
+
+        <table class="table" id="tabla2" width="100%" border="2" align="center">
+    <thead style="color: white;">
+   <th>Ficha</th><th>Programa</th><th>Área</th><th>Inicio</th><th>Tipo_Formación</th><th>Jornada</th><th>N°Trimestres</th><th>Modalidad</th><th>Modificar</th><th>Eliminar</th>
+   </thead>
+   <tbody>
   <?php
   while ($programa = $resultado->fetch_object())
   {
@@ -50,19 +59,56 @@ $resultado = $objConexion->query($sql);
         <td><?php  echo $programa->Area?></td>
         <td><?php  echo $programa->Fecha_Ingr ?> </td>
         <td><?php  echo $programa->Tipo_Formacion ?></td>
+         <td><?php  echo $programa->Jornada ?></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php  echo $programa->Trimestres ?></td>
         <td><?php  echo $programa->Modalidad  ?></td>
 
-        <td align="center"><a href="EditarPrograma.php?Ficha_carac=<?php echo $programa->Ficha_carac?>"><img src="../Imagenes/editar.jpg" width="29" height="24" /></a></td>
+        <td align="center"><a href="EditarPrograma.php?Ficha_carac=<?php echo $programa->Ficha_carac?>"><p class="fas fa-color fa-cogs "></p></a></td>
         
-        <td align="center"><a href="eliminarPrograma.php?Ficha_carac=<?php echo $programa->Ficha_carac?>"><img src="../Imagenes/eliminar.png" 
-        
-        width="29" height="24" /></a></td>
-
+        <td align="center"><a href="eliminarPrograma.php?Ficha_carac=<?php echo $programa->Ficha_carac?>"  onclick="return confirm('¿Está seguro que desea eliminar la Ficha <?php echo $programa->Ficha_carac ?>?');"><p class="fas fa-color2 fa-trash-alt "></p></a></td>
+</tr>
          
   <?php
   }
   ?>
-  
+  </tbody>
 </table>
+<!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+    </script>
+    <script>
+    $(document).ready(function () {
+            $('#tabla2').DataTable({
+                language: {
+                    processing: "Tratamiento en curso...",
+                    search: "Buscar ficha&nbsp;:", 
+                    lengthMenu: "Agrupar por _MENU_ items",
+                    info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
+                    infoEmpty: "No existen datos.",
+                    infoFiltered: "(filtrado de _MAX_ elementos en total)",
+                    infoPostFix: "",
+                    loadingRecords: "Cargando...",
+                    zeroRecords: "No se han encontrado coincidencias",
+                    emptyTable: "No hay datos disponibles en la tabla.",
+                    paginate: {
+                        first: "Primero",
+                        previous: "Anterior",
+                        next: "Siguiente",
+                        last: "Ultimo"
+                    },
+                    aria: {
+                        sortAscending: ": active para ordenar la columna en orden ascendente",
+                        sortDescending: ": active para ordenar la columna en orden descendente"
+                    }
+                },
+                scrollY: 289,
+                lengthMenu: [ [10, 25, -1], [10, 25, "Todo"] ],
+            });
+        });
+    </script>
 </body>
 </html>

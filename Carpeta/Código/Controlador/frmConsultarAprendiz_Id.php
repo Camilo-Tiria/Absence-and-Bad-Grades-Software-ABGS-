@@ -6,47 +6,100 @@
 </head>
 
 <body>
+  <style type="text/css">
+ 
+body {
+  background:  ;
+  color: black;
+  font-family: Time-new-Roma;
+}
 
-<form id="form1" name="form1" method="post" action="">
+form {
+  width: 350px;
+  margin: auto;
+  background: #ddd;
+  padding: 11px;
+  margin-top: 1px;
+  color: black;
+  border: 1px solid black;
+  font-family: Time-new-Roma;
 
-  <center><table width="42%" border="3" align="center">
+}
+label, input,select {
+  width: 100%;
+  display: block;
+  font-size: 0.7em;
+}
+input, select {
+  padding: -1px;
+  margin-bottom:2px;
+}
+input[type="submit"] {
+  
+  background: #333;
+  color: white;
+  
+}
+.error {
+  color: red;
+} 
+
+</style>
+<br>
+<form style="border-radius:20px" id="form1" name="form1" method="post" action="">
+
     <tr>
-      <td colspan="2" align="center" bgcolor="GRAY" style="color:white">CONSULTAR APRENDIZ</td>
+      <center><td colspan="2" align="center" bgcolor="GRAY" style="color:white">✬DOCUMENTO APRENDIZ✬</td></center>
     </tr>
-    <tr>
-      <td width="37%" align="right" bgcolor="#EAEAEA">Identificacion</td>
+    <br>
+    
+      <td width="37%" align="right" bgcolor="#EAEAEA">Identificación:</td>
       <td width="63%"><label for="N_doc"></label>
-      <input title="Ingrese su numero de documento sin puntos ni comas" name="N_doc" type="int" id="N_doc" size="40" required="" /></td>
+      <input title="Ingrese su numero de documento sin puntos ni comas"  maxlength="10" placeholder="Ej:1000234567" name="N_doc" type="int" id="N_doc" size="40" required="" /></td>
     </tr>
     <tr>
  <tr>
    </tr>
       <tr>
+        <br>
       <td colspan="2" align="center" bgcolor="GRAY"><input type="submit" name="button2" id="button" value="Consultar" /></td>
-    </tr>
-  </table></center>
-</form>
+    
+  
+</form><br>
 <?php
 
 if (isset($_POST['button2']))
 {
   require "../Modelo/conexionBasesDatos.php";
   $objConexion=Conectarse();
-  $sql="SELECT * FROM aprendiz WHERE N_doc = $N_doc ";
+  $sql="SELECT * FROM aprendiz, estado, instructor WHERE  N_doc = $N_doc ";
   $resultados = $objConexion->query($sql);
-  while ($consulta = mysqli_fetch_array($resultados))
+  if($consulta = mysqli_fetch_array($resultados))
   {
+    echo "<br> Documento : ".$consulta['N_doc'];
     echo "<br> Nombre : ".$consulta['Nombres'];
-    echo "<br>";
+ 
     echo "<br> Apellido : ".$consulta['Apellidos'];
-    echo "<br>";
+   
     echo "<br> Telefono : ".$consulta['Tel_apre'];
     echo "<br>";
-    echo "<br> Correo SENA : ".$consulta['Correo_SENA'];
-    echo "<br>";
+   
+     echo "<br> Tip_doc : ".$consulta['Tip_doc'];
+   
+     echo "<br> Estado : ".$consulta['Nombre'];
+   
+    
     echo "<br> Ficha : ".$consulta['PROGRAMA_Ficha_carac'];
-    echo "<br>";
+      
+    echo "<br> Correo SENA : ".$consulta['Correo_SENA'];
+    
+    echo "<br> Correo Personal : ".$consulta['Correo_Pl'];
+    
+
+  
   }
+  else
+    echo  "<font size=5 >El documento ingresado no existe, intente de nuevo </font>";
 
   $N_doc = $_POST['N_doc'];
 

@@ -1,90 +1,89 @@
 <?php  
-require "../Modelo/conexionBasesDatos.php";
 
-if (!isset($_SESSION['user']))
-
+ require "../Modelo/conexionBasesDatos.php";
 
 $objConexion = Conectarse();
 
 $sql = "select * FROM r_aprendizaje ";
-$sql1 = "select Num_doc , NombresI, ApellidosI   from instructor ";
-$sql2 = "select Ficha_carac from programa ";
+$sql1 = "select Num_doc , NombresI, ApellidosI , Area from instructor  ";
+
 
 
 $resultado = $objConexion->query($sql);
 $resultado1 = $objConexion->query($sql1);
-$resultado2 = $objConexion->query($sql2);
+
 
 
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Formulario Agregar R_aprendizaje</title>
-</head>
+  <body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover">
+    
+  </body>
+  <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ABSENCE AND BAD GRADES SOFTWARE</title>
+<body>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  </body>
+  <link rel="stylesheet"  href="estilos1.css">
+
 
 <body>
-  <form id="form1" name="form1" method="post" action="AgregarR_A.php">
-<center>
-    <table width="42%" border="3" align="center">
-      <tr>
-        <td colspan="2" align="center" bgcolor="GRAY" style="color: white">AGREGAR R_APRENDIZAJE</td>
+  <form style="margin-top: 70px"; id="form1" name="form1" method="post" action="AgregarR_A.php">
+
+        <center><td colspan="2" align="center" bgcolor="GRAY" style="color: white">✬AGREGAR R_APRENDIZAJE✬</td></center>
       </tr>
+    
+                  
+
       <tr>
-        <td width="37%" align="right" bgcolor="#EAEAEA">Code_Res</td>
-        <td width="63%"><label for="Code_Res"></label>
-          <input name="Code_Res" type="auto" id="Code_Res" size="40" required name ="Code_Res" title="Code_Res" /></td>
-      </tr>
-      <tr>
-        <td align="right" bgcolor="#EAEAEA">Instructor</td>
-      <td><label for="INSTRUCTOR_Num_doc"></label>
+         <td align="right" bgcolor="#EAEAEA">Área:</td>
+      
+     <td><label for="Area"></label>
+           <select title="Tipo de documento del aprendiz" required name="Area" id="Area" type="enum" size="0" style="width:325px">
 
-
-        <select title="Instructor encargado/Técnico" required name="INSTRUCTOR_Num_doc" id="INSTRUCTOR_Num_doc" style="width:305px">
-          <option value="0">Seleccione</option>
-          <?php
-          while ($INSTRUCTOR_Num_doc = $resultado1->fetch_object()) {
-          ?>
-            <option value="<?php echo $INSTRUCTOR_Num_doc->Num_doc ?>"><?php echo $INSTRUCTOR_Num_doc->NombresI?></option>
-            
-          <?php
-          }
-
-          ?>
-        </select>
+            <option value="Inglés">Inglés</option>
+             <option value="C.Física">C.Física</option>
+              <option value="Técnico">Técnico</option>
+               <option value="Promover">Promover</option>
+          </select></td>
+        </td>
         <tr>
-                  </select></td>
-        <td  align="right" bgcolor="#EAEAEA">Ficha</td>
-        <td><label  for="PROGRAMA_Ficha_carac"></label>
-          <select required name="PROGRAMA_Ficha_carac" id="PROGRAMA_Ficha_carac" size="0" style="width:305px" title="Ficha en la que se encuentra el aprendiz">
-            <option  value="0">Seleccione</option>
-            <?php
-            while ($PROGRAMA_Ficha_carac = $resultado2->fetch_object()) {
-            ?>
-              <option value="<?php echo $PROGRAMA_Ficha_carac->Ficha_carac ?>"><?php echo $PROGRAMA_Ficha_carac->Ficha_carac ?></option>
-            <?php
-            }
+           <td align="right" bgcolor="#EAEAEA">Trimestre:</td>
+      
+     <td><label for="Area"></label>
+           <select title="Tipo de documento del aprendiz" required name="Trimestre" id="Trimestre" type="enum" size="0" style="width:325px">
 
-            ?>
-          </select>
+            <option value="I">I</option>
+             <option value="II">II</option>
+              <option value="III">III</option>
+               <option value="IV">IV</option>
+                 <option value="V">V</option>
+                   <option value="VI">VI</option>
+                        <option value="VII">VII</option>
+                             <option value="VIII">VIII</option>
+          </select></td>
+        </td>
 
-      <tr>
-        <td align="right" bgcolor="#EAEAEA">Nombre R</td>
+        <td align="right" bgcolor="#EAEAEA">Nombre: </td>
         <td><label for="Nom_Res"></label>
-          <input title="Nom_Res" required name="Nom_Res" type="text" id="Nom_Res" size="40" /></td>
+          <input title="Nom_Res" required name="Nom_Res" type="text" id="Nom_Res" size="0" style="width:325px" /></td>
       </tr>
       <tr>
-         
+         <br>
         </td>
         <tr>
           <td class="button" colspan="2" align="center" bgcolor="GRAY"><input type="submit" name="button" id="button" value="Enviar" /></td>
         </tr>
-    </table>
-  </center>
+  
   </form>
 </body>
 
+
+
+</div>
 </html>
