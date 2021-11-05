@@ -1,16 +1,15 @@
 <?php
 require "../Modelo/conexionBasesDatos.php";
 if (!isset($_SESSION['user']))
-  header("location:index.php?x=2"); 
+  header("location:/Proyecto_SENA/ABGS/?x=2"); 
   
 extract ($_REQUEST);
 if (!isset($_REQUEST['x']))
   $_REQUEST['x']=0;
 
-$objConexion=Conectarse();
+$sql="SELECT i. Num_doc, i. TipoInstructor_idTipoInstructor, i. EstadoInstructor_idEstadoInstructor, i. Tip_doc, i. NombresI, i. ApellidosI, i. Telefono, i. Direccion, i. Correo_corp, i. Correo_Pl, i. Area, t. TipoInstructor , t. idTipoInstructor , e. idEstadoInstructor , e. EstadoInstruc from instructor as i INNER JOIN estadoinstructor as e on i. EstadoInstructor_idEstadoInstructor=e. idEstadoInstructor INNER JOIN tipoinstructor as t on i. TipoInstructor_idTipoInstructor= t. idTipoInstructor";
 
-$sql="select * from instructor ";
-
+$objConexion=Conectarse();   
 $resultado = $objConexion->query($sql);
 
 ?>
@@ -18,53 +17,94 @@ $resultado = $objConexion->query($sql);
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Listar Instructores:</title>
-
+  <link rel="stylesheet" href="paginacion.css?v=<?php echo(rand()); ?>" />
+  <link rel="stylesheet" href="EstilosAparte.css?v=<?php echo(rand()); ?>" />
 </head>
+<style type="text/css">
+      * {
+  box-sizing: border-box;
+}
+body {
+  background:  ;
 
+  font-family: Time_New_Roma;
+}
+
+
+
+
+
+</style>
 <body>
-<h1 align="center">INSTRUCTORES</h1>
-<table width="89%" border="0" align="center">
-  <tr align="center" bgcolor="GRAY" style="color: white">
-    <td width="11%">N_doc</td>
-    <td width="16%">Tipo</td>
-    <td width="16%">Estado</td>
-    <td width="16%">Tip_doc</td>
-    <td width="19%">Nombres</td>
-    <td width="12%">Apellidos</td>
-    <td width="15%">Telefono</td>
-    <td width="16%">Direccion</td>
-    <td width="10%">Correo_SENA</td>
-    <td width="10%">Correo_Pl</td>
-    
-
-  </tr>
-  
-  
+<h1 style="margin-top: -2px; "align="center">INSTRUCTORES</h1>
+        <table id="tabla5" width="100%" class="table" border="2" align="center">
+      <thead style="color: white; overflow: auto;" >
+   <th>N_doc</th><th>Tipo</th><th>Estado</th><th>Tip_doc</th><th>Nombres</th><th>Apellidos</th><th>Teléfono</th><th>Correo_SENA</th><th>Área</th>
+   </thead>
+   <tbody>
   <?php
   while ($instructor = $resultado->fetch_object())
   {
   ?>
+    </tr> 
   <tr bgcolor="#CCCCCC">
         <td><?php  echo $instructor->Num_doc ?></td>
-        <td><?php  echo $instructor->TipoInstructor_idTipoInstructor ?>     </td>
-        <td><?php  echo $instructor->EstadoInstructor_idEstadoInstructor?></td>
+        <td><?php  echo $instructor->TipoInstructor ?>     </td>
+        <td><?php  echo $instructor->EstadoInstruc?></td>
         <td><?php  echo $instructor->Tip_doc  ?> </td>
         <td><?php  echo $instructor->NombresI ?></td>
         <td><?php  echo $instructor->ApellidosI  ?></td>
         <td><?php  echo $instructor->Telefono ?></td>
-        <td><?php  echo $instructor->Direccion ?></td>
         <td><?php  echo $instructor->Correo_corp ?></td>
-        <td><?php  echo $instructor->Correo_Pl ?>     </td>
-       
-    
-        
-       
+         <td><?php  echo $instructor->Area ?>  </td>
+
   <?php
   }
   ?>
-  
-</table>
+ </tbody>
+<div id="divbutton3">
+  <button><a class="bt3" style="text-decoration: none; color: black; " href="listarInstructores1.php"  >MODIFICAR</a></button>
+</div>
+    </table>
+<!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+    </script>
+    <script>
+    $(document).ready(function () {
+            $('#tabla5').DataTable({
+                language: {
+                    processing: "Tratamiento en curso...",
+                    search: "Buscar Instructor&nbsp;:", 
+                    lengthMenu: "Agrupar por _MENU_ items",
+                    info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
+                    infoEmpty: "No existen datos.",
+                    infoFiltered: "(filtrado de _MAX_ elementos en total)",
+                    infoPostFix: "",
+                    loadingRecords: "Cargando...",
+                    zeroRecords: "No se han encontrado coincidencias",
+                    emptyTable: "No hay datos disponibles en la tabla.",
+                    paginate: {
+                        first: "Primero",
+                        previous: "Anterior",
+                        next: "Siguiente",
+                        last: "Ultimo"
+                    },
+                    aria: {
+                        sortAscending: ": active para ordenar la columna en orden ascendente",
+                        sortDescending: ": active para ordenar la columna en orden descendente"
+                    }
+                },
+                scrollY: 269,
+                lengthMenu: [ [9,10, 15, -1], [9,10, 15, "Todo"] ],
+            });
+        });
+    </script>
 </body>
 </html>

@@ -60,29 +60,36 @@ Public function setNota($value)
 	/**
 	 * @access public
 	 */
-	public function Agregar() {
+	public function AgregarNota() {
 		// Not yet implemented
+	}
+		$this->Conexion=Conectarse();
+		$sql="insert into notas(Cod_Nota,APRENDIZ_Nota,R_APRENDIZAJE_Code_Res,Nota)
+values ('$this->Cod_Nota','$this->APRENDIZ_Nota','$this->R_APRENDIZAJE_Code_Res','$this->Nota')";
+
+		$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;
+			
+	}
+	
+	public function consultarNota()
+	{
+		$this->Conexion=Conectarse();
+		$sql=;
+		$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;	
+	}
+	
+	public function consultarNota($N_doc)
+	{
+		$this->Conexion=Conectarse();
+		$sql="select * from notas where Cod_Nota='$Cod_Nota'";
+		$resultado=$this->Conexion->query($sql);
+		$this->Conexion->close();
+		return $resultado;	
 	}
 
-	/**
-	 * @access public
-	 */
-	public function Consultar() {
-		// Not yet implemented
 	}
-
-	/**
-	 * @access public
-	 */
-	public function Modificar() {
-		// Not yet implemented
-	}
-
-	/**
-	 * @access public
-	 */
-	public function Eliminar() {
-		// Not yet implemented
-	}
-}
 ?>

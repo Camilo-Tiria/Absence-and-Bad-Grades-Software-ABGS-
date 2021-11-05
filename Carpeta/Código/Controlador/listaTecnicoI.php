@@ -2,39 +2,33 @@
 session_start();
 extract ($_REQUEST);
 if (!isset($_SESSION['user']))
- header("location:/Proyecto_SENA/ABGS/?x=2");
-
-
-require "../Modelo/conexionBasesDatos.php";
+  header("location:/Proyecto_SENA/ABGS/?x=2");
+ require "../Modelo/conexionBasesDatos.php";
 $objConexion=Conectarse();
 
-$sql="SELECT i. Num_doc, i. TipoInstructor_idTipoInstructor, i. EstadoInstructor_idEstadoInstructor, i. Tip_doc, i. Direccion, i. NombresI, i. ApellidosI, i. Telefono, i. Direccion, i. Correo_corp, i. Correo_Pl, i. Area, t. TipoInstructor , t. idTipoInstructor , e. idEstadoInstructor , e. EstadoInstruc from instructor as i INNER JOIN estadoinstructor as e on i. EstadoInstructor_idEstadoInstructor=e. idEstadoInstructor INNER JOIN tipoinstructor as t on i. TipoInstructor_idTipoInstructor= t. idTipoInstructor";
+$sql="SELECT a. N_doc, a. PROGRAMA_Ficha_carac, a. Nombres, a. Apellidos, p. Ficha_carac from aprendiz as a Inner join programa as p on a. PROGRAMA_Ficha_carac = p. Ficha_carac where p. Ficha_carac = $_REQUEST[PROGRAMA_Ficha_carac]";
 
-$resultado1 = $objConexion->query($sql);
-
-     
-$resultado1 = $objConexion->query($sql);
-
+$resultado = $objConexion->query($sql);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-      <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
- 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>INSTRUCTORES</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
+  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="EstilosAparte.css?v=<?php echo(rand()); ?>" />
   <link rel="stylesheet" href="paginacion.css?v=<?php echo(rand()); ?>" />
   <link rel="stylesheet" href="estiloprincipal.css?v=<?php echo(rand()); ?>" />
-  <body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover">
   </body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ASISTENCIA TÉCNICO</title>
+<body>
+   <body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover">
 </head>
-<body>  
-
+<body>
   <td><div  class="Logo"><a><img src="../Imagenes/Logo2.png"></a></div></td>
-  </body>
-</head>
+
 <nav class="Menu"><ul>
     <li><a href="vistaPrincipal.php?pg=pgInicial">INICIO ⟰</a>
     <li><a href="vistaPrincipalFichas.php?pg2=frmPrograma">FICHAS ︾</a></li>
@@ -66,49 +60,41 @@ $resultado1 = $objConexion->query($sql);
           <td>&nbsp;</td>
         </tr>
     </nav>
-</body>
-<h1 style="margin-top: 60px;" align="center">EDITAR INSTRUCTORES</h1>
-    <div id="divContenido">
-        <table  id="tabla4" class="table" style="margin-top: -1px;" border="2" align="center">
-   <thead style="color: white;">
-    <th>N_doc</th><th>Tipo</th><th>Estado&nbsp;</th><th>Doc&nbsp;</th><th>Nombres&nbsp;</th><th>Apellidos</th><th>Teléfono</th><th>Dirección</th><th>Correo_SENA</th><th>Área</th><th>Ir&nbsp;</th><th>Eliminar</th>
-   </thead>
-   <tbody>
+</i>
+<h1 style="margin-top: 70px;" align="center">ASISTENCIA TÉCNICO I</h1>
+<div id="divContenido2">
+  <table  id="tabla10" class="table" width="100%" border="2" align="center">
+    <thead style="color: white;">
+   <th>N_doc</th><th>Ficha</th><th>Área</th><th>Nombres</th><th>Apellidos</th><th>Reporte</th>
+  </tr>
+  </thead>
+<tbody>
   <?php
- while ($instructor = $resultado1->fetch_object())
+  while ($aprendiz= $resultado->fetch_object())
   {
   ?>
-
+    </tr>
   <tr bgcolor="#CCCCCC">
-        <td><?php  echo $instructor->Num_doc ?></td>
-        <td><?php  echo $instructor->TipoInstructor ?>     </td>
-        <td><?php  echo $instructor->EstadoInstruc?></td>
-        <td><?php  echo $instructor->Tip_doc  ?> </td>
-        <td><?php  echo $instructor->NombresI ?></td>
-        <td><?php  echo $instructor->ApellidosI  ?></td>
-        <td><?php  echo $instructor->Telefono ?></td>
-          <td><?php  echo $instructor->Direccion ?></td>
-        <td><?php  echo $instructor->Correo_corp ?></td>
-         <td><?php  echo $instructor->Area ?></td>
+        <td><?php  echo $aprendiz->N_doc ?></td>
+        <td><?php  echo $aprendiz->PROGRAMA_Ficha_carac ?></td>
+        <td><?php  echo "Técnico" ?></td>
+        <td><?php  echo $aprendiz->Nombres ?></td>
+        <td><?php  echo $aprendiz->Apellidos  ?></td>
+            <td align="center"><a href="listaTecnicoReporteI.php?N_doc=<?php echo $aprendiz->N_doc?>"><p class="fas fa-color4 fa-calendar-check"></p>  </a></td>
 
-        <td align="center"><a href="EditarInstructor.php?Num_doc=<?php echo $instructor->Num_doc?>"><p class="fas fa-color fa-user-cog "></p></a></td>
-        
-        <td align="center"><a href="eliminarInstructor.php?Num_doc=<?php echo $instructor->Num_doc?>" onclick="return confirm('¿Está seguro que desea eliminar al Instructor <?php echo $instructor->NombresI?>?');"><p class="fas fa-color3 fa-user-times "></p></a></td>
-      </tr>
-     
+
   <?php
   }
-  ?>   
+  ?>
   </tbody>
-</table>
- </div>
-  <div id="divPiePagina"> <?php include "../Vista/piePagina.php";?></div>    
+  </table>
+</div>
+ <div id="divPiePagina"> <?php include "../Vista/piePagina.php";?></div>    
 </div>
 </body>
 <div class="divbutton1">
-<button  class="bto"><a style="text-decoration: none;" href="vistaPrincipalAprendiz.php?pg3=listarProgramas1"  ><p class="fas fa-arrow-left fa-2x"></p></a></button>
+<button class="bto"><a style="text-decoration: none;" href="javascript:history.back()"  ><p class="fas fa-arrow-left fa-2x"></p></a></button>
 </div>
-
 <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
@@ -118,10 +104,10 @@ $resultado1 = $objConexion->query($sql);
     </script>
     <script>
     $(document).ready(function () {
-            $('#tabla4').DataTable({
+            $('#tabla10').DataTable({
                 language: {
                     processing: "Tratamiento en curso...",
-                    search: "Buscar Instructor&nbsp;:", 
+                    search: "Buscar Aprendiz&nbsp;:", 
                     lengthMenu: "Agrupar por _MENU_ items",
                     info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
                     infoEmpty: "No existen datos.",
@@ -141,19 +127,10 @@ $resultado1 = $objConexion->query($sql);
                         sortDescending: ": active para ordenar la columna en orden descendente"
                     }
                 },
-                scrollY: 262,
-                lengthMenu: [ [ 7,10, 25, -1], [ 7,10, 25, "Todo"] ],
+                scrollY: 275,
+                lengthMenu: [ [10, 25, -1], [10, 25, "Todo"] ],
             });
         });
     </script>
 </body>
 </html>
- </tbody>
-</table></center> 
-<div id="divPiePagina"> <?php include "../Vista/piePagina.php";?></div>    
-</div>
-</body>
-<div class="divbutton1">
-<button  class="bto"><a style="text-decoration: none;" href="vistaPrincipalInstructor.php?pg3=listarInstructores"  ><p class="fas fa-arrow-left fa-2x"></p></a></button>
-</div>
-
