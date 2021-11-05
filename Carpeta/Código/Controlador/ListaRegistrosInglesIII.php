@@ -3,33 +3,24 @@ session_start();
 extract ($_REQUEST);
 if (!isset($_SESSION['user']))
  header("location:/Proyecto_SENA/ABGS/?x=2");
-
-
 require "../Modelo/conexionBasesDatos.php";
-$Estado_idEstado ;
-$PROGRAMA_Ficha_carac ;
-$INSTRUCTOR_Num_doc;
-$Tip_doc;
-$Nombres;
-$Apellidos;
-$Tel_apre;
-$Correo_SENA;
-$Correo_Pl;
+$Cod_Nota ;
+$APRENDIZ_Nota ;
+$R_APRENDIZAJE_Code_Res;
+$Nota;
 
 $objConexion=Conectarse();
 
-$sql="SELECT a. N_doc, a. Estado_idEstado, a. PROGRAMA_Ficha_carac, a. Tip_doc, a. Nombres, a. Apellidos, a. Tel_apre, a. Correo_SENA, a. Correo_Pl, e. Nombre , e. idEstado, p. Ficha_carac from aprendiz as a INNER JOIN estado as e on a. Estado_idEstado=e. idEstado  Inner join programa as p on a. PROGRAMA_Ficha_carac = p. Ficha_carac where p. Ficha_carac = $_REQUEST[Ficha_carac]" ;
+$sql="SELECT n. Cod_Nota,n. Trimestre,  n. R_APRENDIZAJE_Code_Res, n. Nota, n. N_doc , n. Area ,a. N_doc , a. Nombres, a. PROGRAMA_Ficha_carac, a. Apellidos,r. Code_Res, r. Nom_Res ,n. INSTRUCTOR_Num_doc, i. Num_doc, i. NombresI FROM notas as n INNER JOIN aprendiz as a on n. N_doc= a. N_doc INNER JOIN r_aprendizaje as r on n. R_APRENDIZAJE_Code_Res = r. Code_Res INNER JOIN instructor as i on i. Num_doc = n. INSTRUCTOR_Num_doc and  n. Area = 'Inglés' and a. PROGRAMA_Ficha_carac = $_REQUEST[PROGRAMA_Ficha_carac] and n. Trimestre = 'III'";
 
-     
 $resultado1 = $objConexion->query($sql);
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APRENDICES</title>
+  <title>REGISTROS INGLÉS</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="EstilosAparte.css?v=<?php echo(rand()); ?>" />
   <link rel="stylesheet" href="paginacion.css?v=<?php echo(rand()); ?>" />
@@ -38,7 +29,8 @@ $resultado1 = $objConexion->query($sql);
   </body>
 </head>
 <body>  
- 
+
+  </style>
   <td><div  class="Logo"><a><img src="../Imagenes/Logo2.png"></a></div></td>
   </body>
 </head>
@@ -74,33 +66,43 @@ $resultado1 = $objConexion->query($sql);
         </tr>
     </nav>
 </body>
-<h1 style="margin-top: 60px;" align="center">LISTA DE APRENDICES</h1>
+<h1 style="margin-top: 60px;" align="center">REGISTROS NOTAS DE INGLÉS III</h1>
     <div id="divContenido">
         <table  id="tabla4" class="table" style="margin-top: -1px;" border="2" align="center">
    <thead style="color: white;">
-   <th>N_doc</th><th>Estado&nbsp;</th><th>Doc&nbsp;&nbsp;</th><th>Nombres</th><th>Apellidos</th><th>Tel_apre</th><th>Correo_SENA</th><th>Correo_Pl</th><th>Ficha</th><th>Ir</th>
+     <th>Cod&nbsp;&nbsp;</th><th>ID&nbsp;&nbsp;<th>Aprendiz&nbsp;&nbsp;</th><th>Apellido&nbsp;&nbsp;</th></th><th>Ficha&nbsp;&nbsp;</th><th>R_Aprendizaje</th><th>Instructor</th><th>Área&nbsp;&nbsp;</th><th>Nota&nbsp;&nbsp;</th><th>Trimestre&nbsp;&nbsp;</th><th>PDF</th><th>Eliminar&nbsp;</th>
+
    </thead>
    <tbody>
   <?php
-  while ($aprendiz = $resultado1->fetch_object())
+ while ($notas = $resultado1->fetch_object())
   {
   ?>
   <tr bgcolor="#CCCCCC">
-        <td><?php  echo $aprendiz->N_doc?></td>
-        <td><?php  echo $aprendiz->Nombre?></td>
-        
-        <td><?php  echo $aprendiz->Tip_doc?></td>
-        <td><?php  echo $aprendiz->Nombres?></td>
-        <td><?php  echo $aprendiz->Apellidos?></td>
-        <td><?php  echo $aprendiz->Tel_apre?></td>
-        <td><?php  echo $aprendiz->Correo_SENA?></td>
-        <td><?php  echo $aprendiz->Correo_Pl?></td>
-        <td><?php  echo $aprendiz->PROGRAMA_Ficha_carac?></td>
-                <td align="center"><a href="funcionesAprendices.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->PROGRAMA_Ficha_carac?>"><p class="fas fa-color fa-user-cog"></p>
-          </td>
+       <td><?php  echo $notas->Cod_Nota ?></td>
+        <td><?php  echo $notas->N_doc ?></td>
+        <td><?php  echo $notas->Nombres ?></td>
+        <td><?php  echo $notas->Apellidos ?></td>
+        <td><?php  echo $notas->PROGRAMA_Ficha_carac ?></td>
+          <td><?php  echo $notas->Nom_Res ?></td>
+           <td><?php  echo $notas->NombresI ?></td>
+            <td><?php  echo $notas->Area ?></td>
+            <?php $color = $notas->Nota;
+            switch ($color) {
+             case '10' : $color1 = 'rgb(235, 143, 143)' ; break;
+              case '20' : $color1 = 'rgb(235, 143, 143)' ; break;
+              case '30' : $color1 = 'rgb(235, 143, 143)' ; break;
+              case '40' : $color1 = 'rgb(198, 213, 126)' ; break;
+              case '50' : $color1 = 'rgb(198, 213, 126)' ; break;
+            }
+            ?>
 
-      </tr>
-     
+           <td style="background-color:<?php echo $color1 ?>" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $notas->Nota ?></td>
+           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php  echo $notas->Trimestre ?></td>
+                    <td rowspan="1"><a style="text-decoration: none; " href='PDFNotasInglesIII.php?PROGRAMA_Ficha_carac=<?php echo $notas->PROGRAMA_Ficha_carac?>'><p class="fas fa-colorpdf fa-download  "></p>Descargar PDF</a></td>
+            <td align="center"><a href="eliminarNota.php?Cod_Nota=<?php echo $notas->Cod_Nota?>" onclick="return confirm('¿Está seguro que desea eliminar al Registro de <?php echo  $notas->Nombres?>?');"><p class="fas fa-color fa-user-times "></p></a></td>
+
+
   <?php
   }
   ?>   
@@ -153,3 +155,13 @@ $resultado1 = $objConexion->query($sql);
     </script>
 </body>
 </html>
+ </tbody>
+ <div class="divbutton1">
+<button class="bto"><a style="text-decoration: none;" href='javascript:history.back()' ><p class="fas fa-arrow-left fa-2x"></p></a></button>
+</div>
+</table>
+
+</div>
+  <div id="divPiePagina"> <?php include "../Vista/piePagina.php";?></div>    
+</div>
+

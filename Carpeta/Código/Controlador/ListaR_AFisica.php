@@ -4,24 +4,14 @@ extract ($_REQUEST);
 if (!isset($_SESSION['user']))
  header("location:/Proyecto_SENA/ABGS/?x=2");
 
-
-require "../Modelo/conexionBasesDatos.php";
-$Estado_idEstado ;
-$PROGRAMA_Ficha_carac ;
-$INSTRUCTOR_Num_doc;
-$Tip_doc;
-$Nombres;
-$Apellidos;
-$Tel_apre;
-$Correo_SENA;
-$Correo_Pl;
-
+ require "../Modelo/conexionBasesDatos.php";
 $objConexion=Conectarse();
 
-$sql="SELECT a. N_doc, a. Estado_idEstado, a. PROGRAMA_Ficha_carac, a. Tip_doc, a. Nombres, a. Apellidos, a. Tel_apre, a. Correo_SENA, a. Correo_Pl, e. Nombre , e. idEstado, p. Ficha_carac from aprendiz as a INNER JOIN estado as e on a. Estado_idEstado=e. idEstado  Inner join programa as p on a. PROGRAMA_Ficha_carac = p. Ficha_carac where p. Ficha_carac = $_REQUEST[Ficha_carac]" ;
+$sql="SELECT r. Code_Res,r. Area,r. Trimestre, r. Nom_Res  FROM r_aprendizaje as r WHERE  r. Area= 'C.Física'";
 
-     
-$resultado1 = $objConexion->query($sql);
+
+
+$resultado = $objConexion->query($sql);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,7 +19,7 @@ $resultado1 = $objConexion->query($sql);
 <head>
       <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APRENDICES</title>
+  <title>R_APRENDIZAJE/C.FÍSICA</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="EstilosAparte.css?v=<?php echo(rand()); ?>" />
   <link rel="stylesheet" href="paginacion.css?v=<?php echo(rand()); ?>" />
@@ -38,7 +28,7 @@ $resultado1 = $objConexion->query($sql);
   </body>
 </head>
 <body>  
- 
+
   <td><div  class="Logo"><a><img src="../Imagenes/Logo2.png"></a></div></td>
   </body>
 </head>
@@ -74,33 +64,28 @@ $resultado1 = $objConexion->query($sql);
         </tr>
     </nav>
 </body>
-<h1 style="margin-top: 60px;" align="center">LISTA DE APRENDICES</h1>
+<h1 style="margin-top: 60px;" align="center">R_APRENDIZAJES C.FÍSICA</h1>
     <div id="divContenido">
         <table  id="tabla4" class="table" style="margin-top: -1px;" border="2" align="center">
    <thead style="color: white;">
-   <th>N_doc</th><th>Estado&nbsp;</th><th>Doc&nbsp;&nbsp;</th><th>Nombres</th><th>Apellidos</th><th>Tel_apre</th><th>Correo_SENA</th><th>Correo_Pl</th><th>Ficha</th><th>Ir</th>
+    <th>Cod&nbsp;&nbsp;</th><th>Nom_res</th><th>Área&nbsp;&nbsp;</th><th>Trimestre&nbsp;&nbsp;</th><th>Modificar&nbsp;&nbsp;</th><th>Eliminar&nbsp;&nbsp;</th><th>Agregar&nbsp;&nbsp;</th>
    </thead>
    <tbody>
   <?php
-  while ($aprendiz = $resultado1->fetch_object())
+while ($r_aprendizaje= $resultado->fetch_object())
   {
   ?>
+    </tr>
   <tr bgcolor="#CCCCCC">
-        <td><?php  echo $aprendiz->N_doc?></td>
-        <td><?php  echo $aprendiz->Nombre?></td>
-        
-        <td><?php  echo $aprendiz->Tip_doc?></td>
-        <td><?php  echo $aprendiz->Nombres?></td>
-        <td><?php  echo $aprendiz->Apellidos?></td>
-        <td><?php  echo $aprendiz->Tel_apre?></td>
-        <td><?php  echo $aprendiz->Correo_SENA?></td>
-        <td><?php  echo $aprendiz->Correo_Pl?></td>
-        <td><?php  echo $aprendiz->PROGRAMA_Ficha_carac?></td>
-                <td align="center"><a href="funcionesAprendices.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->PROGRAMA_Ficha_carac?>"><p class="fas fa-color fa-user-cog"></p>
-          </td>
+    <td><?php  echo $r_aprendizaje->Code_Res ?></td>
+        <td><?php  echo $r_aprendizaje->Nom_Res ?> </td>
+        <td><?php  echo "C.Física" ?></td>
+      <td><?php  echo $r_aprendizaje->Trimestre ?> </td>
+      <td align="center"><a href="EditarR_ACFisica.php?Code_Res=<?php echo $r_aprendizaje->Code_Res?>"><p class="fas fa-color fa-cogs"></p></a></td>
+    <td align="center"><a href="eliminarR_A.php?Code_Res=<?php echo $r_aprendizaje->Code_Res?>"  onclick="return confirm('¿Está seguro que desea eliminar el R_Aprendizaje <?php echo $r_aprendizaje->Code_Res ?>?');"><p class="fas fa-color2 fa-trash-alt "></p></a></td>
+      <td align="center"><a href="frmAgregarR_ACFisica"><p class="fas fa-color fa-cogs"></p>
+    </tr>
 
-      </tr>
-     
   <?php
   }
   ?>   
@@ -126,7 +111,7 @@ $resultado1 = $objConexion->query($sql);
             $('#tabla4').DataTable({
                 language: {
                     processing: "Tratamiento en curso...",
-                    search: "Buscar Aprendiz&nbsp;:", 
+                    search: "Buscar R_Aprendizaje&nbsp;:", 
                     lengthMenu: "Agrupar por _MENU_ items",
                     info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
                     infoEmpty: "No existen datos.",
@@ -153,3 +138,86 @@ $resultado1 = $objConexion->query($sql);
     </script>
 </body>
 </html>
+ </tbody>
+ <div class="divbutton1">
+<button class="bto"><a style="text-decoration: none;" href='javascript:history.back()' ><p class="fas fa-arrow-left fa-2x"></p></a></button>
+</div>
+</table>
+  
+</div>
+  <div id="divPiePagina"> <?php include "../Vista/piePagina.php";?></div>    
+</div>
+</body>
+<div class="divbutton1">
+<button class="bto"><a style="text-decoration: none;" href='javascript:history.back()' ><p class="fas fa-arrow-left fa-2x"></p></a></button>
+</div>
+
+
+<!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+        </script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
+    </script>
+    <script>
+    $(document).ready(function () {
+            $('#tabla12').DataTable({
+                language: {
+                    processing: "Tratamiento en curso...",
+                    search: "Buscar Aprendiz&nbsp;:", 
+                    lengthMenu: "Agrupar por _MENU_ items",
+                    info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
+                    infoEmpty: "No existen datos.",
+                    infoFiltered: "(filtrado de _MAX_ elementos en total)",
+                    infoPostFix: "",
+                    loadingRecords: "Cargando...",
+                    zeroRecords: "No se han encontrado coincidencias",
+                    emptyTable: "No hay datos disponibles en la tabla.",
+                    paginate: {
+                        first: "Primero",
+                        previous: "Anterior",
+                        next: "Siguiente",
+                        last: "Ultimo"
+                    },
+                    aria: {
+                        sortAscending: ": active para ordenar la columna en orden ascendente",
+                        sortDescending: ": active para ordenar la columna en orden descendente"
+                    }
+                },
+                scrollY: 275,
+                lengthMenu: [ [10, 25, -1], [10, 25, "Todo"] ],
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,46 +2,32 @@
 session_start();
 extract ($_REQUEST);
 if (!isset($_SESSION['user']))
- header("location:/Proyecto_SENA/ABGS/?x=2");
-
-
-require "../Modelo/conexionBasesDatos.php";
-$Estado_idEstado ;
-$PROGRAMA_Ficha_carac ;
-$INSTRUCTOR_Num_doc;
-$Tip_doc;
-$Nombres;
-$Apellidos;
-$Tel_apre;
-$Correo_SENA;
-$Correo_Pl;
-
+  header("location:/Proyecto_SENA/ABGS/?x=2");
+ require "../Modelo/conexionBasesDatos.php";
 $objConexion=Conectarse();
 
-$sql="SELECT a. N_doc, a. Estado_idEstado, a. PROGRAMA_Ficha_carac, a. Tip_doc, a. Nombres, a. Apellidos, a. Tel_apre, a. Correo_SENA, a. Correo_Pl, e. Nombre , e. idEstado, p. Ficha_carac from aprendiz as a INNER JOIN estado as e on a. Estado_idEstado=e. idEstado  Inner join programa as p on a. PROGRAMA_Ficha_carac = p. Ficha_carac where p. Ficha_carac = $_REQUEST[Ficha_carac]" ;
+$sql="SELECT a. N_doc, a. PROGRAMA_Ficha_carac, a. Nombres, a. Apellidos, p. Ficha_carac from aprendiz as a Inner join programa as p on a. PROGRAMA_Ficha_carac = p. Ficha_carac where p. Ficha_carac = $_REQUEST[PROGRAMA_Ficha_carac]";
 
-     
-$resultado1 = $objConexion->query($sql);
 
+$resultado = $objConexion->query($sql);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-      <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APRENDICES</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">  
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="EstilosAparte.css?v=<?php echo(rand()); ?>" />
   <link rel="stylesheet" href="paginacion.css?v=<?php echo(rand()); ?>" />
-  <link rel="stylesheet" href="estiloprincipal.css?v=<?php echo(rand()); ?>" />
+  <link rel="stylesheet" href="estiloprincipal.css?v=<?php echo(rand()); ?>" />  
+  </body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ASISTENCIA PROMOVER</title>
+<body>
   <body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover">
-  </body>
 </head>
-<body>  
- 
+<body>
   <td><div  class="Logo"><a><img src="../Imagenes/Logo2.png"></a></div></td>
-  </body>
-</head>
 <nav class="Menu"><ul>
     <li><a href="vistaPrincipal.php?pg=pgInicial">INICIO ⟰</a>
     <li><a href="vistaPrincipalFichas.php?pg2=frmPrograma">FICHAS ︾</a></li>
@@ -73,47 +59,45 @@ $resultado1 = $objConexion->query($sql);
           <td>&nbsp;</td>
         </tr>
     </nav>
-</body>
-<h1 style="margin-top: 60px;" align="center">LISTA DE APRENDICES</h1>
-    <div id="divContenido">
-        <table  id="tabla4" class="table" style="margin-top: -1px;" border="2" align="center">
-   <thead style="color: white;">
-   <th>N_doc</th><th>Estado&nbsp;</th><th>Doc&nbsp;&nbsp;</th><th>Nombres</th><th>Apellidos</th><th>Tel_apre</th><th>Correo_SENA</th><th>Correo_Pl</th><th>Ficha</th><th>Ir</th>
-   </thead>
-   <tbody>
+</i>
+<h1 style="margin-top: 70px;" align="center">REGISTRAR ASISTENCIA DE PROMOVER IV</h1>
+    <div id="divContenido2">
+     <table id="tabla11" width="100%" class="table" border="2" align="center">
+      <thead style="color: white;">
+<th>N_doc</th><th>Nombres</th><th>Apellidos</th><th>Ficha</th><th>Área</th><th>Trimestre</th><th>Individual</th><th>Conjunto</th>
+  </thead>
+<tbody>
   <?php
-  while ($aprendiz = $resultado1->fetch_object())
+  while ($aprendiz= $resultado->fetch_object())
   {
   ?>
+    </tr>
   <tr bgcolor="#CCCCCC">
-        <td><?php  echo $aprendiz->N_doc?></td>
-        <td><?php  echo $aprendiz->Nombre?></td>
+        <td><?php  echo $aprendiz->N_doc ?></td>
+        <td><?php  echo $aprendiz->Nombres ?></td>
+        <td><?php  echo $aprendiz->Apellidos  ?></td>
+        <td><?php  echo $aprendiz->PROGRAMA_Ficha_carac ?></td>
+        <td><?php  echo "Promover" ?></td>
+        <td><?php  echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IV" ?></td>
         
-        <td><?php  echo $aprendiz->Tip_doc?></td>
-        <td><?php  echo $aprendiz->Nombres?></td>
-        <td><?php  echo $aprendiz->Apellidos?></td>
-        <td><?php  echo $aprendiz->Tel_apre?></td>
-        <td><?php  echo $aprendiz->Correo_SENA?></td>
-        <td><?php  echo $aprendiz->Correo_Pl?></td>
-        <td><?php  echo $aprendiz->PROGRAMA_Ficha_carac?></td>
-                <td align="center"><a href="funcionesAprendices.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->PROGRAMA_Ficha_carac?>"><p class="fas fa-color fa-user-cog"></p>
-          </td>
-
-      </tr>
-     
+            <td align="center"><a href="frmAgregarInasistenciaPromoverIV.php?N_doc=<?php echo $aprendiz->N_doc?>"><p class="fas fa-color fa-calendar-check fa-1x"></p>  </a></td>
+             <td align="center"><a href="frmAgregarInasistenciaPromoverCon.php?N_doc=<?php echo $aprendiz->N_doc?>"><p class="fas fa-color fa-calendar-check fa-1x"></p>  </a></td>
+       
+        
+           
   <?php
   }
-  ?>   
+  ?>
+  
   </tbody>
-</table>
- </div>
-  <div id="divPiePagina"> <?php include "../Vista/piePagina.php";?></div>    
+  </table>
+  </div>
+ <div id="divPiePagina"> <?php include "../Vista/piePagina.php";?></div>    
 </div>
 </body>
 <div class="divbutton1">
-<button  class="bto"><a style="text-decoration: none;" href="vistaPrincipalAprendiz.php?pg3=listarProgramas1"  ><p class="fas fa-arrow-left fa-2x"></p></a></button>
+<button class="bto"><a style="text-decoration: none;" href="javascript:history.back()"  ><p class="fas fa-arrow-left fa-2x"></p></a></button>
 </div>
-
 <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
@@ -123,7 +107,7 @@ $resultado1 = $objConexion->query($sql);
     </script>
     <script>
     $(document).ready(function () {
-            $('#tabla4').DataTable({
+            $('#tabla11').DataTable({
                 language: {
                     processing: "Tratamiento en curso...",
                     search: "Buscar Aprendiz&nbsp;:", 
@@ -146,8 +130,8 @@ $resultado1 = $objConexion->query($sql);
                         sortDescending: ": active para ordenar la columna en orden descendente"
                     }
                 },
-                scrollY: 262,
-                lengthMenu: [ [ 9,10, 25, -1], [ 9,10, 25, "Todo"] ],
+                scrollY: 275,
+                lengthMenu: [ [10, 25, -1], [10, 25, "Todo"] ],
             });
         });
     </script>
