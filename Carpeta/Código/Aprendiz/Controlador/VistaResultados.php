@@ -11,9 +11,10 @@ if (!isset($_REQUEST['pg2']))
 <head>
   <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
   <body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover">
+    
   </body>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ASISTENCIAS</title>
+<title>RESULTADOS CURSADOS</title>
 <body>
   <td><div  class="Logo"><a><img src="../Imagenes/Logo2.png"></a></div></td>
   </body>
@@ -47,9 +48,7 @@ if (!isset($_REQUEST['pg2']))
   z-index:0;
   background-image: url(https://media.giphy.com/media/8mz9YJidZMGXndg6eH/giphy.gif);
    font-family: Time-New-Roma;
-
 }
-
   #divContenido {
     position:absolute;
     left:200px;
@@ -68,12 +67,11 @@ if (!isset($_REQUEST['pg2']))
   z-index:1;
 background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
      font-family: Time-new-Roman;
-
   }
   }
 </style>
 </head>
-  <nav class="Menu"><ul>
+   <nav class="Menu"><ul>
     <li><a href="vistaPrincipal.php?pg=pgInicial">INICIO ⟰ </a>
     <li><a href="vistaprincipalNotas.php?pg2=programas">MIS NOTAS ︾</a></li>
     <li><a href="vistaPrincipalMisAsistencias.php?pg2=programas1">ASISTENCIAS ︾</a></li>
@@ -97,8 +95,9 @@ background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
 <body>
 <div id="divContenedor">
 <div id="divMenu">
-<table class="normal" summary="Tabla genérica" width="100%" height="444" border="1" align="center"><tr>
-<td align="center"><a href="vistaPrincipalMisAsistencias.php?pg2=programas1">FICHA A LA QUE PERTENECE &#x27aa;</a></td>
+<table class="normal" summary="Tabla genérica" width="100%" height="444" border="1" align="center">
+<tr>
+<td align="center"><a href="VistaResultados.php?pg2=programas3">FICHA A LA QUE PERTENECE &#x27aa;</a></td>
 </table>
 <div id="divContenido">
 <?php include $pg2.".php"; ?>

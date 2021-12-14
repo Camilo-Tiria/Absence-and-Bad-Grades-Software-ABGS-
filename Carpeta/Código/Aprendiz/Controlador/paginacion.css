@@ -1,4 +1,4 @@
-.table>tbody:nth-child(even) tr:nth-child(odd) {
+table>tbody:nth-child(even) tr:nth-child(odd) {
   background-color: none;
 }
 .table>tbody:nth-child(even) tr:nth-child(odd):hover {

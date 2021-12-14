@@ -11,7 +11,7 @@
 	font-family: 'Potta One', cursive;
 	height: 44.2vh;
 	letter-spacing: 1px;
-	margin-top:210px;
+	margin-top:65.20px;
 }
 
 h1 {
