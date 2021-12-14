@@ -2,13 +2,11 @@
 require "../Modelo/conexionBasesDatos.php";
 $objConexion = Conectarse();
 
-$sql = "select * from usuario";
-$sql1 = "select id_rol , Nombre_rol from roles ";
-
+$sql = "SELECT * FROM usuario";
+$sql1 = "SELECT id_rol , Nombre_rol FROM roles ";
 
 $resultado = $objConexion->query($sql);
 $resultado1 = $objConexion->query($sql1);
-
 
 ?>
 
@@ -21,17 +19,16 @@ $resultado1 = $objConexion->query($sql1);
 <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
 <style type="text/css">
 	body {
   font: 13px/1.6 Tahoma, sans-serif;
   background: #353535;
 }
-
 .izquierda {
   float: left;
   clear: left;
 }
-
 .derecha {
   float: right;
   clear: right;
@@ -40,9 +37,7 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
-
 }
-
 #contenedor {
   background: #F3F0F0;
   border: 0px solid silver;
@@ -52,16 +47,9 @@ ul {
   text-align: justify;   
 }
 </style>
-
-
 </head>
-
-
-<body>
-	<br>
+<body><br>
 <div id="contenedor">
-
-
 <font face="Times New Roman" size="6">Términos y condiciones </font>
 </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img style="height: 60px;" src="../Imagenes/Logo2.png">
@@ -95,42 +83,18 @@ El instructor puede elegir y cambiar la clave para su acceso de administración 
 </tr>
 </table>
 <script type="text/javascript">	
-function myFunction() {
+ function myFunction() {
   var x = document.getElementById("myCheck").required;
   document.getElementById("demo").innerHTML = x;}	
-
-
 </script>
 
 <form action="FormularioPrincipal.php">
  
-  <input type="checkbox" id="myCheck" name="test" required>
+<input type="checkbox" id="myCheck" name="test" required>
   He leído y acepto los términos y condiciones 
   <br><br>
 </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="submit"></form>
-  
-  
-<style type="text/css">
-#divbutton3 {
-  position:absolute;
-  left:80px;
-  top:60px;
-  width:69px;
-  height:20px;
-}
-.fa-arrow-left{
-  color:black;
-
-}
-.fa-arrow-left:hover
-{
-  color: #0B1594;
-}
-
+  <input type="submit" value="Enviar"></form>
 </div>
-
-
- 
 </body>
 </html>

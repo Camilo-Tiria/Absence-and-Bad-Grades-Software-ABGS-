@@ -61,7 +61,10 @@ font-family: Time-new-Roman;
   height:10.2%;
   width: 100%;
   z-index:1;
-background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
-     font-family: Time-new-Roman;
+  background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
+  font-family: Time-new-Roman;
+  font-size: 90%;
+  letter-spacing: 1px;
+  line-height: 1.2;
 
   }

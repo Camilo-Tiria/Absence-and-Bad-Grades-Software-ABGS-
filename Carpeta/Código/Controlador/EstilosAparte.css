@@ -1,3 +1,16 @@
+.aparte {
+  position:absolute;
+  left:6%;
+  top:13%;
+  width:3%;
+  height:6%;
+  box-shadow:  5px 5px 5px black; 
+  background-color:#E1E8EA;
+  border-radius: 10px;
+}
+.aparte:hover{background-color: black;transition: 0.3s}
+.aparte:hover{box-shadow:  5px 5px 10px #737273  ;}
+
 #divPiePagina {
   position:absolute;
   left:0px;
@@ -5,18 +18,27 @@
   height:10%;
   width: 100%;
   z-index:1;
-background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
+  background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
+  font-size: 90%;
+  letter-spacing: 1px;
+  line-height: 1.1;
   }
+
 .bto {
   position:absolute;
   left:6%;
-  top:21%;
+  top:22%;
   width:3%;
   height:6%;
   box-shadow:  5px 5px 5px black; 
   background-color:#E1E8EA;
+  text-decoration: none;
+  border-radius: 10px;
 }
 .bto:hover{background-color: black;transition: 0.3s}
+.bto:hover{box-shadow:  5px 5px 10px #737273  ;}
+
+
 
 .bto2 {
   position:absolute;
@@ -57,9 +79,9 @@ background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
 
 #divContenido {
     position:absolute;
-    left:-0.1%;
+    left:1%;
     top:30%;
-    width:100%;
+    width:98%;
     height:400px;
     z-index:0;
     overflow:auto;
@@ -91,6 +113,18 @@ background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
   width:8.5%;
   height:4%;
   box-shadow:  5px 5px 5px black; 
+  border-radius:15px;
+
+}
+.bt3{
+  background-color: #E5CBF9;
+  border-color: #E5CBF9;
+  border-radius:15px;
+}
+.bt3:hover{
+  background-color: #DFB8FC;
+  border-color:#E5CBF9;
+}
 }
 #divbutton4 {
   position:absolute;
@@ -120,3 +154,22 @@ background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );
 
   }
   .boton_personalizado:hover{background-color: #101E2B ;transition: 0.3s}
+  .pdf{
+     margin-top: -2%;
+    margin-left: 85%;
+}
+#pdfbot{
+    margin-top: -2%;
+    margin-left: 85%;
+  }
+ 
+a{
+  text-decoration: none;
+}
+.btn1{
+  background-color:#E0A3E0 ;
+  border-color: #F7BCF7 ;
+}
+.btn1:hover{
+  background-color: #F3BDF3 
+}

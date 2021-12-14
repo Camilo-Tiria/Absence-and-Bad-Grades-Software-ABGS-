@@ -13,7 +13,6 @@ class Aprendiz {
 	private $N_doc;
 	private $Estado_idEstado;
 	private $PROGRAMA_Ficha_carac;
-	private $INSTRUCTOR_Num_doc;
 	private $Tip_doc;
 	private $Nombres;
 	private $Apellidos;
@@ -48,14 +47,6 @@ return $this->PROGRAMA_Ficha_carac;
 Public function setPROGRAMA_Ficha_carac($value)
 {
  $this->PROGRAMA_Ficha_carac=$value;
-}
-Public function getINSTRUCTOR_Num_doc()
-{
-return $this->INSTRUCTOR_Num_doc;
-}
-Public function setINSTRUCTOR_Num_doc($value)
-{
- $this->INSTRUCTOR_Num_doc=$value;
 }
 Public function getTip_doc()
 {
@@ -107,17 +98,14 @@ Public function setCorreo_Pl($value)
  $this->correo_Pl=$value;
 }
 
-	public $_unnamed_Instructor_;
 	public $_unnamed_Programa_;
-	public $_unnamed_Instructor_2;
 	public $_unnamed_Estado_;
 
-public function crearAprendiz($N_doc,$Estado_idEstado,$PROGRAMA_Ficha_carac,$INSTRUCTOR_Num_doc,$Tip_doc,$Nombres,$Apellidos,$Tel_apre,$Correo_SENA,$Correo_Pl)
+public function crearAprendiz($N_doc,$Estado_idEstado,$PROGRAMA_Ficha_carac,$Tip_doc,$Nombres,$Apellidos,$Tel_apre,$Correo_SENA,$Correo_Pl)
 	{
 		$this->N_doc=$N_doc;
 		$this->Estado_idEstado=$Estado_idEstado;
 		$this->PROGRAMA_Ficha_carac=$PROGRAMA_Ficha_carac;
-		$this->INSTRUCTOR_Num_doc=$INSTRUCTOR_Num_doc;
 		$this->Tip_doc=$Tip_doc;
 		$this->Nombres=$Nombres;
 		$this->Apellidos=$Apellidos;
@@ -129,8 +117,8 @@ public function crearAprendiz($N_doc,$Estado_idEstado,$PROGRAMA_Ficha_carac,$INS
 	public function agregarAprendiz()
 	{	
 		$this->Conexion=Conectarse();
-		$sql="insert into aprendiz(N_doc,Estado_idEstado,PROGRAMA_Ficha_carac,INSTRUCTOR_Num_doc,Tip_doc,Nombres,Apellidos, Tel_apre, Correo_SENA, Correo_Pl)
-values ('$this->N_doc','$this->Estado_idEstado','$this->PROGRAMA_Ficha_carac','$this->INSTRUCTOR_Num_doc','$this->Tip_doc','$this->Nombres','$this->Apellidos','$this->Tel_apre','$this->Correo_SENA','$this->Correo_Pl')";
+		$sql="INSERT INTO aprendiz(N_doc,Estado_idEstado,PROGRAMA_Ficha_carac,Tip_doc,Nombres,Apellidos, Tel_apre, Correo_SENA, Correo_Pl) VALUES ('$this->N_doc','$this->Estado_idEstado','$this->PROGRAMA_Ficha_carac','$this->Tip_doc',
+        '$this->Nombres','$this->Apellidos','$this->Tel_apre','$this->Correo_SENA','$this->Correo_Pl')";
 
 		$resultado=$this->Conexion->query($sql);
 		$this->Conexion->close();
@@ -138,21 +126,20 @@ values ('$this->N_doc','$this->Estado_idEstado','$this->PROGRAMA_Ficha_carac','$
 			
 	}
 	
-	public function consultarAprendiz()
+	public function consultarAprendiz($N_doc)
 	{
 		$this->Conexion=Conectarse();
-		$sql="select a.N_doc, a.Nombres, a.Apellidos, a.Tel_apre, a.Correo_SENA p.Ficha_carac, p.Nom_Program , e.Nombre, i.NombresI
-		    from aprendiz a, programa p, estado e, instructor i
-			where (a.INSTRUCTOR_Num_doc= i.Num_doc)";
+		$sql="SELECT * FROM aprendiz, estado, instructor WHERE  N_doc = $N_doc ";
 		$resultado=$this->Conexion->query($sql);
 		$this->Conexion->close();
 		return $resultado;	
 	}
-	
-	public function consultarAprendiz($N_doc)
+
+	public function modificarAprendiz($N_doc)
 	{
 		$this->Conexion=Conectarse();
-		$sql="select * from aprendiz where N_doc='$N_doc'";
+		$sql="UPDATE aprendiz SET Estado_idEstado='$Estado_idEstado' ,PROGRAMA_Ficha_carac='$PROGRAMA_Ficha_carac' ,   Nombres='$Nombres',Apellidos='$Apellidos',   Tel_apre='$Tel_apre',  Correo_Pl='$Correo_Pl', 
+        Correo_SENA='$Correo_SENA', Tip_doc='$Tip_doc' WHERE N_doc='$N_doc'";
 		$resultado=$this->Conexion->query($sql);
 		$this->Conexion->close();
 		return $resultado;	

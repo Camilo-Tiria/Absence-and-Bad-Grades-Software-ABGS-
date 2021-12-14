@@ -109,11 +109,6 @@ ul li:hover {
 ul li.botones:hover {
   background-color: transparent;
 }
-
-
-
-
-
 ul li.izquierda, ul li.derecha {
   float: none;
   width: auto;

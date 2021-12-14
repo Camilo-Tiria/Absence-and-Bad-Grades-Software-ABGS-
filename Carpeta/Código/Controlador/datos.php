@@ -4,7 +4,7 @@ $Jornada=$_POST['Jornada'];
 
 $objConexion=Conectarse();
 
-$sql="SELECT Trimestres from jornada where NombreJ='$Jornada' ";
+$sql="SELECT Trimestres FROM jornada where NombreJ='$Jornada' ";
 
 $resultado = $objConexion->query($sql);
 

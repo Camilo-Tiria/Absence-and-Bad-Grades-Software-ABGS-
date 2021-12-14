@@ -16,8 +16,10 @@ form {
   margin-top: 10px;
   color: black;
   border: 1px solid black;
-    font-family: Time-new-Roman;
-
+  font-family: Time-new-Roman;
+  box-shadow: 5px 5px 8px black;
+  border-radius: 15px;
+  background-color: #ddd;
 }
 label, input,select {
   width: 100%;
