@@ -14,15 +14,13 @@ $resultado1 = $objConexion->query($sql);
 <html>
 <head>
   <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
-  <title>ÁREAS/CALIFICACIONES</title> 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>ÁREAS/CALIFICACIONES</title> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
-<body>
-    <body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover">
-  <br>
+<body><body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover"><br>
 <tbody>
   <?php
   if ($aprendiz = $resultado1->fetch_object())
@@ -30,17 +28,16 @@ $resultado1 = $objConexion->query($sql);
   ?>
   <tr bgcolor="#CCCCCC">
 
-      </tr>
-     <div class="container">   
+    </tr>
+    <div class="container">   
     <CENTER><h1>ELIGE TU ÁREA</h1></CENTER>
     <div class="row1">       
-      <div class="col-md1">        
-          <div class="card">
-            <img class="card-img-top" src="https://previews.123rf.com/images/maxkabakov/maxkabakov1504/maxkabakov150400593/38979004-education-concept-glowing-text-english-in-grunge-dark-room-with-dirty-floor-black-background-3d-rend.jpg">  
-                     
-            <div class="card-body">
+    <div class="col-md1">        
+    <div class="card">
+    <img class="card-img-top" 
+    src="https://previews.123rf.com/images/maxkabakov/maxkabakov1504/maxkabakov150400593/38979004-education-concept-glowing-text-english-in-grunge-dark-room-with-dirty-floor-black-background-3d-rend.jpg">       
+    <div class="card-body">
               <center><h4 class="card-title">INGLÉS</h4></center>
-          
               <center><a href="registrosnotasArea1.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row1{
@@ -55,21 +52,17 @@ $resultado1 = $objConexion->query($sql);
                  height:100px ;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>  
 
-
-
-        <div class="row2">       
-      <div class="col-md2">        
-          <div class="card">
-            <img class="card-img-top" src="http://www3.gobiernodecanarias.org/medusa/ecoblog/dhernavt/files/2015/06/cropped-balones.jpg"> 
-                     
-            <div class="card-body">
+    <div class="row2">       
+    <div class="col-md2">        
+    <div class="card">
+    <img class="card-img-top" src="http://www3.gobiernodecanarias.org/medusa/ecoblog/dhernavt/files/2015/06/cropped-balones.jpg">   
+    <div class="card-body">
               <center><h4 class="card-title">C.FÍSICA</h4></center>
-          
               <center><a href="registrosnotasArea2.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row2{
@@ -77,27 +70,23 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 300px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
                  height:100px ;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>   
 
-           <div class="row3">       
-      <div class="col-md3">        
-          <div class="card">
-            <img class="card-img-top" src="https://www.linuxadictos.com/wp-content/uploads/programacion-guia.jpg"> 
-                     
-            <div class="card-body">
+    <div class="row3">       
+    <div class="col-md3">        
+    <div class="card">
+    <img class="card-img-top" src="https://www.linuxadictos.com/wp-content/uploads/programacion-guia.jpg">      
+    <div class="card-body">
               <center><h4 class="card-title">TÉCNICO</h4></center>
-          
               <center><a href="registrosnotasArea3.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row3{
@@ -105,38 +94,31 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 570px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
                  height:100px ;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>   
 
-
-           <div class="row4">       
-      <div class="col-md4">        
-          <div class="card">
-            <img class="card-img-top" src="https://us.123rf.com/450wm/lawren/lawren1110/lawren111000018/10769746-concepto-de-trabajo-de-equipo-coloridos-mu%C3%B1ecos-sobre-fondo-negro-.jpg?ver=6"> 
-                     
-            <div class="card-body">
+    <div class="row4">       
+    <div class="col-md4">        
+    <div class="card">
+    <img class="card-img-top" src="https://us.123rf.com/450wm/lawren/lawren1110/lawren111000018/10769746-concepto-de-trabajo-de-equipo-coloridos-mu%C3%B1ecos-sobre-fondo-negro-.jpg?ver=6">              
+    <div class="card-body">
               <center><h4 class="card-title">PROMOVER</h4></center>
-          
               <center><a href="registrosnotasArea4.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
-  </tbody>
- <style type="text/css">
+    </tbody>
+    <style type="text/css">
                 .row4{
-                width:215px ;
+                 width:215px ;
                  height:150px ;
                  margin-left: 840px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
@@ -148,25 +130,19 @@ $resultado1 = $objConexion->query($sql);
                 border-color: black;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>   
                                            <?php
   }
     else{
-
-     echo "<script>
+    echo "<script>
                 alert('NO SE ENCUENTRAN APRENDICES REGISTRADOS');
-                
                 window.location= 'javascript:history.back()'
     </script>";
-
-
-
 }
-  ?> 
-       
+?> 
 </style>
 <div id="divbutton1">
 <button><a style="text-decoration: none;" href="javascript:history.back()"  ><i class="fas fa-arrow-left fa-2x"></i></a></button>
@@ -181,14 +157,12 @@ $resultado1 = $objConexion->query($sql);
 }
 .fa-arrow-left{
   color:black;
-
 }
 .fa-arrow-left:hover
 {
   color: #0B1594;
 }
-  </style>
-
+</style>
 </html>
 
 

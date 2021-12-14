@@ -4,36 +4,30 @@ extract ($_REQUEST);
 if (!isset($_SESSION['user']))
  header("location:/Proyecto_SENA/ABGS/?x=2");
  require "../Modelo/conexionBasesDatos.php";
-
-
 $objConexion=Conectarse();
-
 
 $sql = "select * FROM r_aprendizaje ";
 
-
 $resultado = $objConexion->query($sql);
-
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head><link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon"> 
   <body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover">
-    
+    <head><link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">
   </body>
-  <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon">  
+   
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>EDITAR R_A TÉCNICO</title>
+<title>AGREGAR_R_A TÉCNICO</title>
 <body>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <td><div  class="Logo"><a><img src="../Imagenes/Logo2.png"></a></div></td>
-  </body>
+<td><div  class="Logo"><a><img src="../Imagenes/Logo2.png"></a></div></td>
+</body>
 <link rel="stylesheet" href="estiloprincipal.css?v=<?php echo(rand()); ?>" />
  <link rel="stylesheet" href="EstilosAparte.css?v=<?php echo(rand()); ?>" />
 <style type="text/css">
 #divContenedor {
-  
   left:px;
   top:19px;
   width:1100px;
@@ -58,9 +52,7 @@ $resultado = $objConexion->query($sql);
   height:500px;
   z-index:0;
   background-image: url(https://media.giphy.com/media/8mz9YJidZMGXndg6eH/giphy.gif);
-
 }
-
   #divContenido {
     position:absolute;
     left:180px;
@@ -70,8 +62,6 @@ $resultado = $objConexion->query($sql);
     z-index:0;
     overflow:auto;
     }
-
- 
     * {
   box-sizing: border-box;
 }
@@ -80,7 +70,6 @@ body {
   color: white;
   font-family: Time_New_Roma;
 }
-
 form {
   width: 350px;
   margin: auto;
@@ -90,7 +79,6 @@ form {
   color: black;
   border: 1px solid black;
   font-family: Time_New_Roma;
-
 }
 label, input,select {
   width: 100%;
@@ -115,87 +103,58 @@ input[type="submit"] {
 .error {
   color: red;
 } 
-
 </style>
 </head>
 <nav class="Menu"><ul>
     <li><a href="vistaPrincipal.php?pg=pgInicial">INICIO ⟰</a>
-    <li><a href="vistaPrincipalFichas.php?pg2=frmPrograma">FICHAS ︾</a></li>
+    <li><a href="vistaPrincipalFichas.php?pg2=frmprograma">FICHAS ︾</a></li>
     <li><a href="vistaPrincipalAprendiz.php?pg3=frmAgregarAprendiz">APRENDICES ︾</a></li>
     <li><a href="">logo︾</a></li>
     <li><a href="vistaPrincipalInstructor.php?pg3=listarInstructores">INSTRUCTORES ︾</a></li>
     <li><a href="vistaPrincipalAsistencia.php?pg2=asistenciafichas">REGISTROS ︾  </a></li>
-  </ul>
-  </nav> 
-  
+</ul>
+</nav> 
 <nav class="perfil"><ol>
-
-  
     <li><i href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERFIL︙</i>
-      <ol><li><a href="perfil.php?=<?=$_SESSION['user']?>">Mi Perfil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⍈</a></li>
-  <li><a href="contacto.php">Contacto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;☏</a></li>
-      <li><a href="listarmensajes.php">Mensajes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✉</a></li>
-      <li><a href="">Notificaciones&nbsp;&nbsp;&nbsp;✓</a></li>
-    
-      <li><a href="salir.php"  onclick="return confirm('¿Está seguro que desea Cerrar la Sesión?');">Cerrar Sesión&nbsp;&nbsp;&nbsp; ⇶</a></li></ol></li>
-
-        </tr>
-
-    
-        <tr>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>  
-          <td>&nbsp;</td>
-        </tr>
+    <ol><li><a href="perfil.php?=<?=$_SESSION['user']?>">Mi Perfil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⍈</a></li>
+    <li><a href="listarmensajes.php">Mensajes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✉</a></li>
+    <li><a href="mapeo.php">Información&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✓</a></li>
+    <li><a href="salir.php"  onclick="return confirm('¿Está seguro que desea Cerrar la Sesión?');">Cerrar Sesión&nbsp;&nbsp;&nbsp; ⇶</a></li></ol></li></tr>
+    <tr>
+    <td>&nbsp;</td></tr>
+    <tr>  
+    <td>&nbsp;</td></tr>
     </nav>
 <body>
-  <form style="margin-top: 140px"; id="form1" name="form1" method="post" action="AgregarR_A.php">
+  <form style="margin-top: 140px;border-radius: 20px"; id="form1" name="form1" method="post" action="AgregarR_A.php">
 
-        <center><td colspan="2" align="center" bgcolor="GRAY" style="color: white">✬AGREGAR R_APRENDIZAJE✬</td></center>
-      </tr>
-      <tr>
-        
+        <center><td colspan="2" align="center" bgcolor="GRAY" style="color: white">✬AGREGAR R_APRENDIZAJE✬</td></center></tr><tr><tr>
 
-      <tr>
-         <td align="right" bgcolor="#EAEAEA">Área:</td>
-      
-     <td><label for="Area"></label>
-           <select title="Tipo de documento del aprendiz" required name="Area" id="Area" type="enum" size="0" style="width:325px">
-
+        <td align="right" bgcolor="#EAEAEA">Área:</td>
+        <td><label for="Area"></label>
+        <select title="Area" required name="Area" id="Area" type="enum" size="0" style="width:325px">
             <option value="Técnico">Técnico</option>
-          </select></td>
-        </td>
-        <tr>
-          <td align="right" bgcolor="#EAEAEA">Trimestre:</td>
-      
-     <td><label for="Area"></label>
-           <select title="Tipo de documento del aprendiz" required name="Trimestre" id="Trimestre" type="enum" size="0" style="width:325px">
+        </select></td></td><tr>
 
+        <td align="right" bgcolor="#EAEAEA">Trimestre:</td>
+        <td><label for="Trimestre"></label>
+        <select title="Trimestre" required name="Trimestre" id="Trimestre" type="enum" size="0" style="width:325px">
             <option value="I">I</option>
-             <option value="II">II</option>
-              <option value="III">III</option>
-               <option value="IV">IV</option>
-                 <option value="V">V</option>
-                   <option value="VI">VI</option>
-                        <option value="VII">VII</option>
-                             <option value="VIII">VIII</option>
-          </select></td>
-        </td>
-
+            <option value="II">II</option>
+            <option value="III">III</option>
+            <option value="IV">IV</option>
+            <option value="V">V</option>
+            <option value="VI">VI</option>
+            <option value="VII">VII</option>
+            <option value="VIII">VIII</option>
+        </select></td></td>
 
         <td align="right" bgcolor="#EAEAEA">Nombre </td>
         <td><label for="Nom_Res"></label>
-          <input title="Nom_Res" required name="Nom_Res" type="text" id="Nom_Res" size="40" /></td>
-      </tr>
-      <tr>
-         
-        </td>
-        <tr>
-          <td class="button" colspan="2" align="center" bgcolor="GRAY"><input type="submit" name="button" id="button" value="Enviar" /></td>
-        </tr>
-  
-  </form>
+        <input title="Nom_Res" required name="Nom_Res" type="text" id="Nom_Res" size="40" /></td></tr><tr></td><tr>
+
+        <td class="button" colspan="2" align="center" bgcolor="GRAY"><input type="submit" name="button" id="button" value="Agregar" /></td></tr>
+</form>
 </body>
 <style>
 #divbutton1 {

@@ -10,8 +10,8 @@ $objConexion=Conectarse();
 $actualizar=mysqli_query($objConexion,"SELECT * FROM aprendiz WHERE N_doc='$N_doc'");
 $aprendiz=mysqli_fetch_array($actualizar);
 
-$sql1 = "select Nom_Res, Code_Res , Area from r_aprendizaje where Area = 'Técnico' and Trimestre = 'III'";
-$sql2 = "select Num_doc , NombresI, ApellidosI , Area from instructor WHERE Area= 'Técnico'  ";
+$sql1 = "select Nom_Res, Code_Res , Area from r_aprendizaje where Area = 'C.Física' and Trimestre = 'VII' ";
+$sql2 = "select Num_doc , NombresI, ApellidosI , Area from instructor WHERE Area= 'C.Física'  ";
 
 $resultado1 = $objConexion->query($sql1);
 $resultado2 = $objConexion->query($sql2);
@@ -23,7 +23,7 @@ $resultado2 = $objConexion->query($sql2);
   <link rel="shortcut icon" href="../Imagenes/icon.ico" type="image/x-icon"> 
 </body>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>NOTAS TÉCNICO</title>
+<title>NOTAS C.FISICA</title>
 <body>
 <body background= "../Imagenes/FOL11.jpg" style="background-repeat: no-repeat; background-position: absolute;background-size: cover">
   <td><div  class="Logo"><a><img src="../Imagenes/Logo2.png"></a></div></td>
@@ -91,21 +91,22 @@ label, input,select {
     <tr>
     <td>&nbsp;</td></tr>
     <tr>  
-    <td>&nbsp;</td>
-    </tr>
+    <td>&nbsp;</td></tr>
     </nav>
 </i>
-<body><body>
-  <form style="margin-top: 90px;border-radius: 20px" id="form1" name="form1" method="post" action="AgregarNota.php">
+<body>
+<body>
+   <form style="margin-top: 90px;border-radius: 20px" id="form1" name="form1" method="post" action="AgregarNota.php">
 
-        <center><td colspan="2" align="center" bgcolor="GRAY" style="color: white">✬AGREGAR NOTA TÉCNICO✬</td></center></tr>
+        <center><td colspan="2" align="center" bgcolor="GRAY" style="color: white">✬AGREGAR NOTA C.FÍSICA✬</td></center></tr>
+
         <tr><td align="right" bgcolor="#EAEAEA">Instructor:</td>
         <td><label for="INSTRUCTOR_Num_doc"></label>
         <select title="Instructor encargado/Técnico" required name="INSTRUCTOR_Num_doc" id="INSTRUCTOR_Num_doc" style="width:325px">
           <?php
           while ($INSTRUCTOR_Num_doc = $resultado2->fetch_object()) {
           ?>
-            <option value="<?php echo $INSTRUCTOR_Num_doc->Num_doc ?>"><?php echo $INSTRUCTOR_Num_doc->NombresI?></option> 
+            <option value="<?php echo $INSTRUCTOR_Num_doc->Num_doc ?>"><?php echo $INSTRUCTOR_Num_doc->NombresI?></option>
           <?php
           }
           ?>
@@ -132,9 +133,10 @@ label, input,select {
         <input type="hidden"name="N_doc" value="<?php echo $_REQUEST['N_doc'] ?>">
         <td><label for="Area"></label>
         <select title="Area" required name="Area" id="Area" type="enum" size="0" style="width:325px">
-            <option value="Técnico">Técnico</option>
-        </select></td></td>
-
+            <option value="C.Física">C.Física</option>
+        </select></td>
+        </td>
+      
         <td><label for="Nota">Nota:</label>
         <select title="Nota" required name="Nota" id="Nota" type="enum" size="0" style="width:325px">
             <option value="10">10</option>
@@ -147,9 +149,9 @@ label, input,select {
         <td align="right" bgcolor="#EAEAEA">Trimestre:</td>
         <td><label for="Area"></label>
         <select title="Trimestre" required name="Trimestre" id="Trimestre" type="enum" size="0" style="width:325px">
-            <option value="III">III</option>
+            <option value="VII">VII</option>
         </select></td></td><br>
-       
+
 <div class="divbutton1">
 <button class="bto"><a href='javascript:history.back()'class="fas fa-arrow-left fa-2x"></a></button>
 </div>
@@ -159,3 +161,6 @@ label, input,select {
 </div>
 </body>
 </html>
+
+
+

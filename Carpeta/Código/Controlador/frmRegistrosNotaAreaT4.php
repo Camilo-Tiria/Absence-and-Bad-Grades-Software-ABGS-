@@ -30,17 +30,14 @@ $resultado1 = $objConexion->query($sql);
   ?>
   <tr bgcolor="#CCCCCC">
 
-      </tr>
-     <div class="container">   
+    </tr>
+    <div class="container">   
     <CENTER><h1>TRIMESTRES EN PROMOVER</h1></CENTER>
     <div class="row1">       
-      <div class="col-md1">        
-          <div class="card">
-            <img class="card-img-top" src="../Imagenes/trimes1.jpg">
-                     
-            <div class="card-body">
-        
-          
+    <div class="col-md1">        
+    <div class="card">
+    <img class="card-img-top" src="../Imagenes/trimes1.jpg">       
+    <div class="card-body">
               <center><a href="ListaRegistrosPromoverI.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row1{
@@ -55,21 +52,16 @@ $resultado1 = $objConexion->query($sql);
                  height:100px ;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>  
 
-
-
-        <div class="row2">       
-      <div class="col-md2">        
-          <div class="card">
-            <img class="card-img-top" src="../Imagenes/trimes2.jpg"> 
-                     
-            <div class="card-body">
-           
-          
+    <div class="row2">       
+    <div class="col-md2">        
+    <div class="card">
+    <img class="card-img-top" src="../Imagenes/trimes2.jpg">           
+    <div class="card-body">
               <center><a href="ListaRegistrosPromoverII.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row2{
@@ -77,27 +69,22 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 300px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
                  height:100px ;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>   
 
-           <div class="row3">       
-      <div class="col-md3">        
-          <div class="card">
-            <img class="card-img-top" src="../Imagenes/trimes3.jpg"> 
-                     
-            <div class="card-body">
-      
-          
+    <div class="row3">       
+    <div class="col-md3">        
+    <div class="card">
+    <img class="card-img-top" src="../Imagenes/trimes3.jpg">          
+    <div class="card-body">
               <center><a href="ListaRegistrosPromoverIII.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row3{
@@ -105,26 +92,22 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 570px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
                  height:100px ;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>   
-           <div class="row4">       
-      <div class="col-md3">        
-          <div class="card">
-            <img class="card-img-top" src="../Imagenes/trimes4.jpg"> 
-                     
-            <div class="card-body">
-             
-          
+
+    <div class="row4">       
+    <div class="col-md3">        
+    <div class="card">
+    <img class="card-img-top" src="../Imagenes/trimes4.jpg">        
+    <div class="card-body">
               <center><a href="ListaRegistrosPromoverIV.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row4{
@@ -132,27 +115,22 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 840px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
                  height:100px ;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>   
 
-         <div class="row5">       
-      <div class="col-md3">        
-          <div class="card">
-            <img class="card-img-top" src="../Imagenes/trimes5.jpg">
-                     
-            <div class="card-body">
-            
-          
+    <div class="row5">       
+    <div class="col-md3">        
+    <div class="card">
+    <img class="card-img-top" src="../Imagenes/trimes5.jpg">    
+    <div class="card-body">
               <center><a href="ListaRegistrosPromoverV.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row5{
@@ -160,28 +138,22 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 30px;
                  margin-top: 80px;
-     
-
               }
               .card-img-top{
                  width:210px ;
                  height:100px ;
               }
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div>   
 
-
-         <div class="row6">       
-      <div class="col-md3">        
-          <div class="card">
-            <img class="card-img-top" src="../Imagenes/trimes6.jpg"> 
-                     
-            <div class="card-body">
-
-          
+    <div class="row6">       
+    <div class="col-md3">        
+    <div class="card">
+    <img class="card-img-top" src="../Imagenes/trimes6.jpg">      
+    <div class="card-body">
               <center><a href="ListaRegistrosPromoverVI.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row6{
@@ -189,8 +161,6 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 300px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
@@ -201,19 +171,16 @@ $resultado1 = $objConexion->query($sql);
                 background-color: #9C9C9C;
                 border-color: black;
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div> 
 
-<div class="row7">       
-      <div class="col-md3">        
-          <div class="card">
-            <img class="card-img-top" src="../Imagenes/trimes7.jpg">
-                     
-            <div class="card-body">
-       
-          
+    <div class="row7">       
+    <div class="col-md3">        
+    <div class="card">
+    <img class="card-img-top" src="../Imagenes/trimes7.jpg">   
+    <div class="card-body">
               <center><a href="ListaRegistrosPromoverVII.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row7{
@@ -221,8 +188,6 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 569px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
@@ -233,19 +198,16 @@ $resultado1 = $objConexion->query($sql);
                 background-color: #9C9C9C;
                 border-color: black;
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div> 
 
     <div class="row8">       
-      <div class="col-md3">        
-          <div class="card">
-            <img class="card-img-top" src="../Imagenes/trimes8.jpg">
-                     
-            <div class="card-body">
-           
-          
+    <div class="col-md3">        
+    <div class="card">
+    <img class="card-img-top" src="../Imagenes/trimes8.jpg">        
+    <div class="card-body">
               <center><a href="ListaRegistrosPromoverVIII.php?PROGRAMA_Ficha_carac=<?php echo $aprendiz->Ficha_carac?>" class="btn btn-primary">Entrar</a></center>
               <style type="text/css">
                 .row8{
@@ -253,8 +215,6 @@ $resultado1 = $objConexion->query($sql);
                  height:150px ;
                  margin-left: 840px;
                  margin-top: -150px;
-     
-
               }
               .card-img-top{
                  width:210px ;
@@ -265,15 +225,13 @@ $resultado1 = $objConexion->query($sql);
                 background-color: #9C9C9C;
                 border-color: black;
               </style>
-            </div>
-          </div>          
-      </div>
+    </div>
+    </div>          
+    </div>
     </div> 
     <?php
   }
-   
-  ?> 
-       
+  ?>    
 </style>
 <div id="divbutton1">
 <button><a style="text-decoration: none;" href="javascript:history.back()"  ><i class="fas fa-arrow-left fa-2x"></i></a></button>
@@ -288,13 +246,11 @@ $resultado1 = $objConexion->query($sql);
 }
 .fa-arrow-left{
   color:black;
-
 }
 .fa-arrow-left:hover
 {
   color: #0B1594;
 }
-  </style>
-
+</style>
 </html>
 
