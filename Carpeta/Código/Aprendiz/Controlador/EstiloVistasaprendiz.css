@@ -54,11 +54,12 @@ font-family: Time-new-Roman;
     overflow:all;
          font-family: Time-new-Roman;
     }
+
 #divPiePagina {
   position:absolute;
   left:0px;
-  top:89.8%;
-  height:10.2%;
+  top:87%;
+  height:13%;
   width: 100%;
   z-index:1;
 background:linear-gradient(30deg, #1C2833 ,#212F3D, #060505, #212F3D, #1C2833 );

@@ -86,7 +86,7 @@ transition: all .3s;
     text-decoration:none;
     display:inline-block;
     padding:-30%;
-    width:110px;
+    width:120px;
     height:35px;
     border:1px solid #000;
     color:#fff;
@@ -111,8 +111,8 @@ list-style-type: none;
  nav li:hover>ol{
       display:block;
       position:absolute;
-      top:19.65%;
-      left:1129px;
+      top:19.40%;
+      left:1119px;
     list-style-type: none;
 
 }
