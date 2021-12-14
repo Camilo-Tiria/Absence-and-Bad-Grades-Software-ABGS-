@@ -1,0 +1,245 @@
+div#imagen{
+    width: 200px;
+    height: 150px;
+    margin-left: 25%;
+    margin-top: 3%;
+    -webkit-transition: 0.3s;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    
+}
+div#imagen:hover{
+    -webkit-transform:scale(1.3);
+    transform:scale(1.3);
+    }
+div#infor{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: -162.9%;
+    position: absolute;
+    overflow: hidden;
+    width: 199.9px;
+    height: 330px;
+    background-color: rgba(31, 31, 31, 0.9);
+    -webkit-transition:opacity 0.2s;
+    opacity: 0;
+    color: white;
+}
+div#imagen:hover div#infor{
+    opacity: 1;
+}
+#cabeza{
+    margin-left: -15%;
+    position: absolute;
+    -webkit-transition: margin 0.2s;
+}
+div#imagen:hover #cabeza{
+    margin-left: 20%;
+}
+
+#texto{
+    margin: auto;
+    width: 190px;
+    text-align: center;
+    -webkit-transition: margin 0.3s;
+    margin-top: 160px;
+}
+
+#texto1{
+    margin: auto;
+    width: 190px;
+    text-align: center;
+    -webkit-transition: margin 0.3s;
+    margin-top: 160px;
+}
+div#imagen:hover #texto{
+    margin-top: 70px;
+}
+div#imagen1{
+    width: 200px;
+    height: 150px;
+    margin-left: 58%;
+    margin-top: -11.9%;
+    -webkit-transition: 0.3s;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    
+}
+div#imagen1:hover{
+    -webkit-transform:scale(1.3);
+    transform:scale(1.3);
+    }
+div#infor1{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: -164%;
+    position: absolute;
+    overflow: hidden;
+    width: 187px;
+    height: 330px;
+    background-color: rgba(31, 31, 31, 0.9);
+    -webkit-transition:opacity 0.2s;
+    opacity: 0;
+    color: white;
+}
+div#imagen1:hover div#infor1{
+    opacity: 1;
+}
+#cabeza1{
+    margin-left: -15%;
+    position: absolute;
+    -webkit-transition: margin 0.2s;
+}
+div#imagen1:hover #cabeza1{
+    margin-left: 20%;
+}
+
+
+div#imagen1:hover #texto1{
+    margin-top: 70px;
+}
+.leidy{
+		width: 100%;
+		border-top-right-radius: 15px;
+		border-top-left-radius: 15px;
+        
+	}
+.leidy img:hover{transform:scale(1.2);
+	   transition: all .3s;
+	}
+#leidy{
+       box-shadow: 5px 5px 5px black;
+
+}
+.camilo{
+		width: 93.5%;
+		border-top-right-radius: 15px;
+		border-top-left-radius: 15px;
+	}
+
+.camilo img:hover{transform:scale(1.2);
+	  transition: all .3s;
+     
+	}
+#camilo{
+        box-shadow: 5px 5px 5px black;
+}
+
+#linea{
+    width: 100%;
+    height: 40px;
+    background-color: #CFBEF4  ;
+}
+
+#footer{
+  position:absolute;
+  left:0%;
+  top:80%;
+  height:20%;
+  width: 100%;
+  z-index:1;
+  border-top-right-radius: 100%;
+background:linear-gradient(30deg, #44125C  ,#592075 , #6E2A90  , #B03FE7  , #BD58EF  );
+  }
+#secciones{
+	color: white;
+	margin-left: 2%;
+}
+ a{
+	text-decoration: none;
+	color: #D7D2D2 ;
+	list-style: none;
+}
+	a:hover{
+	color: white;
+	font-weight: bold;
+}
+li {
+	list-style: none;
+}
+
+#info{
+	color: white;
+	margin-left: 18%;
+	margin-top: -8%;
+}
+lu a {
+	color: black	;
+	text-decoration: none;
+	margin-left: 98%;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+lu a:hover{
+	color: red;
+}
+.modal-contenido{
+background:linear-gradient(15deg, #333333  ,#6C6A6A , #9A9999  , #B7B7B7  , #C7C6C6  );
+  width:400px;
+  height: 50%;
+  padding: 10px 20px;
+  margin: 10% auto;
+  position: relative;
+  margin-left: 30%;
+  border-radius:12px;
+  color:black;
+  box-shadow:  5px 5px 20px #D4D3D3 ; 
+}
+ p{
+	font-size: 20px;
+}
+.modal{
+  background-color: rgba(0,0,0,.8);
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  opacity:0;
+  pointer-events:none;
+  transition: all 1s;
+}
+#HistoriaABGS:target{
+  opacity:1;
+  pointer-events:auto;
+}
+#MisionABGS:target{
+  opacity:1;
+  pointer-events:auto;
+}
+#VisionABGS:target{
+  opacity:1;
+  pointer-events:auto;
+}
+#contacto{
+	background-color:white;
+	font-weight: bold;
+	margin-left: 48%;
+	margin-top: -1.5%;
+	border-radius:12px;
+	box-shadow:  3px 3px 3px black; 
+	transition-duration: 0.4s;
+}
+#contacto:hover{
+	background-color: black;
+	color: white;
+}
+button a {
+	color: black;
+}
+#direccion{
+	color: white;
+	margin-left: 34%;
+	margin-top: -5%;
+}
+#redes{
+	color: white;
+	margin-left: 70%;
+	margin-top: -4%;
+}
+.social-icons{
+    margin-left:66%;
+    margin-top: 0.5%;
+	letter-spacing: 10px;
+	font-size: 30px;
